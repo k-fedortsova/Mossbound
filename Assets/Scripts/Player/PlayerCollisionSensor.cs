@@ -9,7 +9,8 @@ namespace Mossbound.Player
         [SerializeField] private LayerMask groundLayers;
         [SerializeField] private LayerMask wallLayers;
         [SerializeField, Min(0.01f)] private float groundCheckDistance = 0.05f;
-        [SerializeField, Range(0.1f, 1f)] private float groundCheckWidth = 0.9f;
+        [Tooltip("Fraction of the body width that must stand on ground. Kept narrow so the player drops once their centre passes the edge.")]
+        [SerializeField, Range(0.1f, 1f)] private float groundCheckWidth = 0.25f;
         [SerializeField, Range(0.1f, 1f)] private float wallCheckHeight = 0.5f;
         [SerializeField, Range(0f, 1f)] private float minSurfaceNormal = 0.9f;
 

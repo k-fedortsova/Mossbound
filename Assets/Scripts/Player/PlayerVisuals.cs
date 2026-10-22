@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Mossbound.Player.StateMachine;
 using UnityEngine;
 
@@ -25,6 +26,18 @@ namespace Mossbound.Player
         [Header("Dash")]
         [SerializeField] private Color dashTint = new Color(0.6f, 0.9f, 1f);
 
+        [Header("Dash Trail")]
+        [SerializeField, Min(0.01f)] private float ghostInterval = 0.03f;
+        [SerializeField, Min(0.01f)] private float ghostLifetime = 0.2f;
+        [SerializeField] private Color ghostColor = new Color(0.6f, 0.9f, 1f, 0.55f);
+        [Tooltip("Drawn behind the terrain so the trail never covers platforms.")]
+        [SerializeField] private int ghostSortingOrder = -5;
+
+        private readonly List<(SpriteRenderer renderer, float age)> ghosts = new List<(SpriteRenderer, float)>();
+        private readonly Stack<SpriteRenderer> ghostPool = new Stack<SpriteRenderer>();
+        private Transform ghostRoot;
+        private float ghostTimer;
+
         private Vector3 baseScale;
         private Color baseColor;
         private int currentAnimation;
@@ -44,6 +57,8 @@ namespace Mossbound.Player
         {
             if (player != null && player.StateMachine != null)
                 player.StateMachine.StateChanged -= OnStateChanged;
+            if (ghostRoot != null)
+                Destroy(ghostRoot.gameObject);
         }
 
         private void LateUpdate()
@@ -52,6 +67,7 @@ namespace Mossbound.Player
             float recovery = 1f - Mathf.Exp(-recoverySpeed * Time.deltaTime);
             transform.localScale = Vector3.Lerp(transform.localScale, baseScale, recovery);
             PlayAnimation(SelectAnimation(player.StateMachine.CurrentState.Id));
+            UpdateDashTrail();
         }
 
         private void OnStateChanged(PlayerState state)
@@ -67,6 +83,7 @@ namespace Mossbound.Player
                     break;
                 case PlayerStateId.Dashing:
                     Squash(dashStretch);
+                    ghostTimer = 0f;
                     break;
                 case PlayerStateId.Grounded:
                     Squash(landSquash);
@@ -97,6 +114,62 @@ namespace Mossbound.Player
 
             animator.Play(animation);
             currentAnimation = animation;
+        }
+
+        private void UpdateDashTrail()
+        {
+            if (player.StateMachine.CurrentState.Id == PlayerStateId.Dashing)
+            {
+                ghostTimer -= Time.deltaTime;
+                if (ghostTimer <= 0f)
+                {
+                    SpawnGhost();
+                    ghostTimer += ghostInterval;
+                }
+            }
+
+            for (int i = ghosts.Count - 1; i >= 0; i--)
+            {
+                var (ghost, age) = ghosts[i];
+                age += Time.deltaTime;
+                if (age >= ghostLifetime)
+                {
+                    ghost.gameObject.SetActive(false);
+                    ghostPool.Push(ghost);
+                    ghosts.RemoveAt(i);
+                    continue;
+                }
+
+                Color color = ghostColor;
+                color.a *= 1f - age / ghostLifetime;
+                ghost.color = color;
+                ghosts[i] = (ghost, age);
+            }
+        }
+
+        private void SpawnGhost()
+        {
+            if (ghostRoot == null)
+                ghostRoot = new GameObject("Dash Trail").transform;
+
+            SpriteRenderer ghost = ghostPool.Count > 0 ? ghostPool.Pop() : CreateGhost();
+            ghost.gameObject.SetActive(true);
+            ghost.sprite = spriteRenderer.sprite;
+            ghost.flipX = spriteRenderer.flipX;
+            ghost.color = ghostColor;
+            ghost.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            ghost.transform.localScale = transform.lossyScale;
+            ghosts.Add((ghost, 0f));
+        }
+
+        private SpriteRenderer CreateGhost()
+        {
+            var ghost = new GameObject("Ghost").AddComponent<SpriteRenderer>();
+            ghost.transform.SetParent(ghostRoot, false);
+            ghost.sharedMaterial = spriteRenderer.sharedMaterial;
+            ghost.sortingLayerID = spriteRenderer.sortingLayerID;
+            ghost.sortingOrder = ghostSortingOrder;
+            return ghost;
         }
 
         private void Squash(Vector2 scale)
