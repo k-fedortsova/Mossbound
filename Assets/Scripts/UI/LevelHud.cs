@@ -17,8 +17,9 @@ namespace Mossbound.UI
         [SerializeField] private CanvasGroup banner;
         [SerializeField] private Text bannerTitle;
         [SerializeField] private Text bannerHint;
+        [Tooltip("Time the banner stays fully visible, not counting the fades.")]
         [SerializeField, Min(0f)] private float bannerDuration = 3.5f;
-        [SerializeField, Min(0.01f)] private float bannerFadeTime = 0.4f;
+        [SerializeField, Min(0.01f)] private float bannerFadeTime = 0.5f;
 
         [Header("Finish")]
         [SerializeField] private GameObject finishPanel;
@@ -68,7 +69,7 @@ namespace Mossbound.UI
             }
 
             bannerTimer -= Time.deltaTime;
-            float visibleTime = Mathf.Min(bannerTimer, bannerDuration - bannerTimer);
+            float visibleTime = Mathf.Min(bannerTimer, BannerTotalTime - bannerTimer);
             banner.alpha = Mathf.Clamp01(visibleTime / bannerFadeTime);
         }
 
@@ -81,8 +82,10 @@ namespace Mossbound.UI
         {
             bannerTitle.text = message.title;
             bannerHint.text = message.hint;
-            bannerTimer = bannerDuration;
+            bannerTimer = BannerTotalTime;
         }
+
+        private float BannerTotalTime => bannerDuration + bannerFadeTime * 2f;
 
         private void UpdateFalls(int falls)
         {
@@ -95,7 +98,7 @@ namespace Mossbound.UI
             bannerTimer = 0f;
             banner.alpha = 0f;
             finishPanel.SetActive(true);
-            finishStats.text = $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}\n\nPress R to play again";
+            finishStats.text = $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}";
         }
 
         private static string FormatTime(float seconds)

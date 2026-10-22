@@ -17,6 +17,8 @@ namespace Mossbound.Player.States
 
         public override PlayerStateId Id => PlayerStateId.Dashing;
 
+        public Vector2 Direction => direction;
+
         private int HorizontalSign => direction.x > 0.01f ? 1 : direction.x < -0.01f ? -1 : 0;
 
         public override void Enter()
