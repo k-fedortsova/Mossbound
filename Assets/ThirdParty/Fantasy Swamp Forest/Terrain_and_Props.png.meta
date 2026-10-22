@@ -1065,6 +1065,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Swamp_Water
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 400
+        width: 32
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 2}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc588578aa34f319f979f8f4b6085ef
+      internalID: 726727919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Swamp_Prop_Tree
       rect:
         serializedVersion: 2
@@ -1165,6 +1187,7 @@ TextureImporter:
       Swamp_Prop_Ruins: 413520656
       Swamp_Prop_Start_Sign: -1224941449
       Swamp_Prop_Tree: -64451411
+      Swamp_Water: 726727919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
