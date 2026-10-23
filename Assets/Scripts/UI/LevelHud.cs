@@ -97,6 +97,14 @@ namespace Mossbound.UI
             pendingMessages.Clear();
             bannerTimer = 0f;
             banner.alpha = 0f;
+
+            // The session fades to the next level on its own; the full finish panel is only for the last level.
+            if (session.HasNextLevel)
+            {
+                DisplayMessage(("LEVEL COMPLETE", $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}"));
+                return;
+            }
+
             finishPanel.SetActive(true);
             finishStats.text = $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}";
         }

@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using Mossbound.Player;
+using Mossbound.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,11 +13,19 @@ namespace Mossbound.Gameplay
         [SerializeField] private PlayerRespawn player;
         [SerializeField] private InputActionReference restartAction;
 
+        [Header("Next Level")]
+        [Tooltip("Time the completion message stays on screen before the fade to the next level.")]
+        [SerializeField, Min(0f)] private float nextLevelDelay = 2f;
+        [SerializeField, Min(0.01f)] private float nextLevelFadeTime = 1f;
+
+        private bool isLoadingNextLevel;
+
         public static GameSession Instance { get; private set; }
 
         public float ElapsedTime { get; private set; }
         public int Falls { get; private set; }
         public bool IsFinished { get; private set; }
+        public bool HasNextLevel => SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings;
 
         public event Action<int> FallsChanged;
         public event Action<string, string> MessageRequested;
@@ -46,7 +56,7 @@ namespace Mossbound.Gameplay
 
         private void Update()
         {
-            if (restartAction.action.WasPressedThisFrame())
+            if (restartAction.action.WasPressedThisFrame() && !isLoadingNextLevel)
             {
                 Restart();
                 return;
@@ -69,6 +79,21 @@ namespace Mossbound.Gameplay
 
             IsFinished = true;
             Finished?.Invoke();
+            if (HasNextLevel)
+                StartCoroutine(LoadNextLevel());
+        }
+
+        private IEnumerator LoadNextLevel()
+        {
+            isLoadingNextLevel = true;
+            yield return new WaitForSeconds(nextLevelDelay);
+
+            var fader = FindAnyObjectByType<ScreenFader>();
+            if (fader != null)
+                yield return fader.Fade(1f, nextLevelFadeTime);
+
+            ScreenFader.FadeInOnNextLoad();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void Restart()
