@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Gameplay.GameSession
   player: {fileID: 1304823019}
   restartAction: {fileID: -2644702322552663130, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  nextLevelDelay: 2
+  nextLevelFadeTime: 1
 --- !u!4 &82910023
 Transform:
   m_ObjectHideFlags: 0
@@ -812,6 +814,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+--- !u!4 &264980969 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+  m_PrefabInstance: {fileID: 299883113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &265153029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3528,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &299883113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 370115179}
+    m_Modifications:
+    - target: {fileID: 1600397315749222849, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_Name
+      value: Fireflies (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.050001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98682714
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.16177844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 18.62
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
 --- !u!1 &317486086
 GameObject:
   m_ObjectHideFlags: 0
@@ -8510,6 +8574,7 @@ Transform:
   - {fileID: 700831806}
   - {fileID: 1857254009}
   - {fileID: 1657310240}
+  - {fileID: 264980969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &401309662 stripped
@@ -21197,6 +21262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60fded8a2b4e4d4fa375cc001c5358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.UI.ScreenFader
+  sceneFadeInTime: 1
 --- !u!225 &1155989295
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -31054,6 +31120,10 @@ PrefabInstance:
     - target: {fileID: 1600397315749222849, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
       propertyPath: m_Name
       value: Fireflies
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131544192239189671, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 33153
       objectReference: {fileID: 0}
     - target: {fileID: 7156140820674028767, guid: 6bd9af52688484251837517c86cb2a06, type: 3}
       propertyPath: m_LocalPosition.x
