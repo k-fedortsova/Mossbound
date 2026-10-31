@@ -1,3 +1,4 @@
+using Mossbound.Level;
 using Mossbound.Player.StateMachine;
 using Mossbound.Player.States;
 using UnityEngine;
@@ -97,6 +98,16 @@ namespace Mossbound.Player
             UpdateTimers(deltaTime);
             StateMachine.FixedTick(deltaTime);
             UpdateFacing();
+            RideGroundPlank();
+        }
+
+        private void RideGroundPlank()
+        {
+            if (Sensor.GroundCollider == null || !Sensor.GroundCollider.TryGetComponent(out BridgePlank plank))
+                return;
+
+            body.position += plank.Delta;
+            plank.NotifyStanding();
         }
 
         public void SetFrozen(bool frozen)

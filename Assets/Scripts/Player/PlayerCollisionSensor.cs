@@ -18,6 +18,7 @@ namespace Mossbound.Player
 
         public bool IsGrounded { get; private set; }
         public int WallSide { get; private set; }
+        public Collider2D GroundCollider { get; private set; }
 
         private void Awake()
         {
@@ -36,7 +37,9 @@ namespace Mossbound.Player
             Vector2 size = new Vector2(bounds.size.x * groundCheckWidth, 0.05f);
             Vector2 origin = new Vector2(bounds.center.x, bounds.min.y + size.y * 0.5f);
             RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, Vector2.down, groundCheckDistance, groundLayers);
-            return hit.collider != null && hit.normal.y >= minSurfaceNormal;
+            bool grounded = hit.collider != null && hit.normal.y >= minSurfaceNormal;
+            GroundCollider = grounded ? hit.collider : null;
+            return grounded;
         }
 
         private bool CheckWall(Bounds bounds, int direction)
