@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15174484fe90045a6ab36fd36d1c12b4, type: 3}
+  m_Name: PlayerMovementSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Player.PlayerMovementSettings
+  maxMoveSpeed: 7
+  groundAcceleration: 45
+  groundDeceleration: 55
+  airAcceleration: 30
+  targetJumpHeight: 2.5
+  targetTimeToApex: 0.35
+  jumpBufferTime: 0.1
+  coyoteTime: 0.1
+  fallGravityMultiplier: 1.5
+  maxFallSpeed: 16
+  jumpCutGravityMultiplier: 3
+  doubleJumpVerticalSpeed: 11.5
+  maxAirJumps: 1
+  dashDuration: 0.16
+  dashSpeed: 22
+  maxAirDashes: 1
+  dashCooldown: 0.3
+  dashGravityScale: 0
+  dashExitSpeed: 8
+  dashExitDecayTime: 0.2
+  dashBufferTime: 0.1
+  wallJumpHorizontalSpeed: 8
+  wallJumpVerticalSpeed: 13
+  wallJumpControlLockTime: 0.08
+  wallCheckDistance: 0.06
+  wallSlideSpeed: 2
+  wallCoyoteTime: 0.1
+  wallClingRequiresInput: 1
+  allowSameWallRepeat: 0
+  allowDashFromWall: 0
