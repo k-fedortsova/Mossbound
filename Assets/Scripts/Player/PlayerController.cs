@@ -7,6 +7,7 @@ namespace Mossbound.Player
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputReader), typeof(PlayerCollisionSensor))]
     [RequireComponent(typeof(PlayerAbilities))]
+    //Cправжній монстр а не клас, занадто багато відповідальностей, які мають бути в середині стейтів 
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerMovementSettings settings;

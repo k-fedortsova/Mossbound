@@ -16,12 +16,13 @@ namespace Mossbound.UI
         [SerializeField] private GameObject continueHint;
         [SerializeField, Min(1f)] private float charactersPerSecond = 45f;
 
+        //Не думаю що це має бути тут, бо тоді для кожного діалогового вікна треба буде робити свою перевірку інпуту
         private static readonly Key[] ChoiceKeys = { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4 };
         private static readonly Key[] NumpadKeys = { Key.Numpad1, Key.Numpad2, Key.Numpad3, Key.Numpad4 };
 
         private CanvasGroup canvasGroup;
 
-        public bool IsOpen { get; private set; }
+        private bool isOpen;
 
         private void Awake()
         {
@@ -41,10 +42,10 @@ namespace Mossbound.UI
 
         public bool TryOpen()
         {
-            if (IsOpen)
+            if (isOpen)
                 return false;
 
-            IsOpen = true;
+            isOpen = true;
             speakerText.text = string.Empty;
             bodyText.text = string.Empty;
             choicesText.text = string.Empty;
@@ -54,7 +55,7 @@ namespace Mossbound.UI
 
         public void Close()
         {
-            IsOpen = false;
+            isOpen = false;
             SetVisible(false);
         }
 

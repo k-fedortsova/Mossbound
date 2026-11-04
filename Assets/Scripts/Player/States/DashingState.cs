@@ -26,6 +26,9 @@ namespace Mossbound.Player.States
             Player.Input.ConsumeDash();
             Player.Input.ConsumeJump();
 
+            //Мені не подобається така повʼязаність станів і
+            //те що у вас кругова залежність між PlayerStateMachine - PlayerState - Player
+            //https://refactoring.guru/design-patterns/state - про стейт машину
             startedOnGround = Player.StateMachine.PreviousState == Player.GroundedState;
             if (!startedOnGround)
                 Player.AirDashesLeft--;

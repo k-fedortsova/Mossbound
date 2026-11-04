@@ -191,7 +191,7 @@ namespace Mossbound.Player
             animator.SetFloat(VerticalVelocityParameter, player.Velocity.y);
             animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.maxMoveSpeed));
             animator.SetBool(IsAirborneParameter, state != PlayerStateId.Grounded
-                && state != PlayerStateId.Dashing && state != PlayerStateId.WallSliding);
+                && state != PlayerStateId.Dashing && state != PlayerStateId.WallSliding); //Якщо додавати більше анімацій, скоро це стане важко підтримувати
             animator.SetBool(IsDashingParameter, state == PlayerStateId.Dashing);
             animator.SetBool(IsWallSlidingParameter, state == PlayerStateId.WallSliding);
         }
@@ -227,6 +227,7 @@ namespace Mossbound.Player
             }
         }
 
+        //Object Pool з префабчику - і вашій грі стане жити легше
         private void SpawnGhost()
         {
             if (ghostRoot == null)
@@ -244,6 +245,7 @@ namespace Mossbound.Player
 
         private SpriteRenderer CreateGhost()
         {
+            //Object Pool з префабчику - і вашій грі стане жити легше
             var ghost = new GameObject("Ghost").AddComponent<SpriteRenderer>();
             ghost.transform.SetParent(ghostRoot, false);
             ghost.sharedMaterial = spriteRenderer.sharedMaterial;
@@ -252,6 +254,7 @@ namespace Mossbound.Player
             return ghost;
         }
 
+        //класне рішення
         private void Squash(Vector2 scale)
         {
             currentScale = new Vector3(baseScale.x * scale.x, baseScale.y * scale.y, baseScale.z);

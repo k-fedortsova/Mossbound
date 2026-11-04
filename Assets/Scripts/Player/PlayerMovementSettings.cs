@@ -5,8 +5,10 @@ namespace Mossbound.Player
     [CreateAssetMenu(fileName = "PlayerMovementSettings", menuName = "Mossbound/Player Movement Settings")]
     public class PlayerMovementSettings : ScriptableObject
     {
+        
         [Header("Move")]
-        [Min(0f)] public float maxMoveSpeed = 7f;
+        //Данні потрібно захищати від небажаних змін особливо у випадку зі скріптаблами
+        [Min(0f)] [field: SerializeField] public float maxMoveSpeed { get; private set; } = 7f;
         [Min(0f)] public float groundAcceleration = 45f;
         [Min(0f)] public float groundDeceleration = 55f;
         [Min(0f)] public float airAcceleration = 30f;
