@@ -34,6 +34,12 @@ namespace Mossbound.CameraSystem
 
         private void Awake()
         {
+            if (!Require.Assigned(target, nameof(target), this))
+            {
+                enabled = false;
+                return;
+            }
+
             player = target.GetComponent<PlayerController>();
             respawn = target.GetComponent<PlayerRespawn>();
         }

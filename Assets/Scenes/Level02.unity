@@ -34826,7 +34826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Level.Portal
   portalVisual: {fileID: 676381205}
-  portalAnimator: {fileID: 676381206}
   destination: {fileID: 644459039}
   cooldown: 0.75
 --- !u!70 &1805027573

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Mossbound.Gameplay;
 using Mossbound.UI;
 using UnityEngine;
 
@@ -22,6 +23,8 @@ namespace Mossbound.Player
         {
             controller = GetComponent<PlayerController>();
             spawnPoint = transform.position;
+
+            Require.Assigned(screenFader, nameof(screenFader), this);
         }
 
         private void FixedUpdate()
@@ -37,8 +40,10 @@ namespace Mossbound.Player
 
         public void Respawn()
         {
-            if (!isRespawning)
-                StartCoroutine(RespawnRoutine());
+            if (isRespawning || GameSession.Instance.IsFinished)
+                return;
+
+            StartCoroutine(RespawnRoutine());
         }
 
         private IEnumerator RespawnRoutine()

@@ -140,7 +140,7 @@ namespace Mossbound.Player
         {
             float target = 0f;
             if (state != PlayerStateId.WallSliding)
-                target = -maxTilt * Mathf.Clamp(player.Velocity.x / player.Settings.maxMoveSpeed, -1f, 1f);
+                target = -maxTilt * Mathf.Clamp(player.Velocity.x / player.Settings.MaxMoveSpeed, -1f, 1f);
 
             tilt = Mathf.Lerp(tilt, target, 1f - Mathf.Exp(-tiltSpeed * Time.deltaTime));
             transform.localRotation = Quaternion.Euler(0f, 0f, tilt);
@@ -189,7 +189,7 @@ namespace Mossbound.Player
             float speed = Mathf.Abs(player.Velocity.x);
             animator.SetFloat(SpeedParameter, speed);
             animator.SetFloat(VerticalVelocityParameter, player.Velocity.y);
-            animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.maxMoveSpeed));
+            animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.MaxMoveSpeed));
             animator.SetBool(IsAirborneParameter, state != PlayerStateId.Grounded
                 && state != PlayerStateId.Dashing && state != PlayerStateId.WallSliding); //Якщо додавати більше анімацій, скоро це стане важко підтримувати
             animator.SetBool(IsDashingParameter, state == PlayerStateId.Dashing);

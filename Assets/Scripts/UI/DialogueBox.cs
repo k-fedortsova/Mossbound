@@ -26,6 +26,12 @@ namespace Mossbound.UI
 
         private void Awake()
         {
+            Require.Assigned(continueAction, nameof(continueAction), this);
+            Require.Assigned(speakerText, nameof(speakerText), this);
+            Require.Assigned(bodyText, nameof(bodyText), this);
+            Require.Assigned(choicesText, nameof(choicesText), this);
+            Require.Assigned(continueHint, nameof(continueHint), this);
+
             canvasGroup = GetComponent<CanvasGroup>();
             SetVisible(false);
         }
