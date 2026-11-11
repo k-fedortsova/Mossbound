@@ -53,8 +53,7 @@ namespace Mossbound.Player
             float halfFade = fadeDuration * 0.5f;
 
             yield return screenFader.Fade(1f, halfFade);
-            transform.position = spawnPoint;
-            controller.ResetMotion();
+            controller.TeleportTo(spawnPoint);
             Respawned?.Invoke();
             yield return screenFader.Fade(0f, halfFade);
 

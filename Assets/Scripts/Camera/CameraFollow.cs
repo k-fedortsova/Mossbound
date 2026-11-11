@@ -24,7 +24,6 @@ namespace Mossbound.CameraSystem
         [SerializeField, Min(0f)] private float verticalDeadZone = 1.25f;
 
         private PlayerController player;
-        private PlayerRespawn respawn;
         private Vector3 velocity;
         private float lookDirection = 1f;
         private float turnTimer;
@@ -41,19 +40,18 @@ namespace Mossbound.CameraSystem
             }
 
             player = target.GetComponent<PlayerController>();
-            respawn = target.GetComponent<PlayerRespawn>();
         }
 
         private void OnEnable()
         {
-            if (respawn != null)
-                respawn.Respawned += SnapToTarget;
+            if (player != null)
+                player.Teleported += SnapToTarget;
         }
 
         private void OnDisable()
         {
-            if (respawn != null)
-                respawn.Respawned -= SnapToTarget;
+            if (player != null)
+                player.Teleported -= SnapToTarget;
         }
 
         private void Start()

@@ -1,3 +1,4 @@
+using System;
 using Mossbound.Level;
 using Mossbound.Player.StateMachine;
 using Mossbound.Player.States;
@@ -22,6 +23,8 @@ namespace Mossbound.Player
         private float groundDashCooldownTimer;
         private float wallCoyoteTimer;
         private int wallCoyoteSide;
+        
+        public event Action Teleported;
 
         public PlayerMovementSettings Settings => settings;
         public PlayerInputReader Input { get; private set; }
@@ -118,8 +121,16 @@ namespace Mossbound.Player
             if (frozen)
                 body.linearVelocity = Vector2.zero;
         }
+        
+        public void TeleportTo(Vector2 position)
+        {
+            body.position = position;
+            transform.position = new Vector3(position.x, position.y, transform.position.z);
+            ResetMotion();
+            Teleported?.Invoke();
+        }
 
-        public void ResetMotion()
+        private void ResetMotion()
         {
             StateMachine.ChangeState(FallingState);
             body.linearVelocity = Vector2.zero;

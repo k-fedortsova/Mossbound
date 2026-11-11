@@ -57,13 +57,7 @@ namespace Mossbound.Level
                 return;
 
             lastTeleportTime = Time.time;
-
-            Rigidbody2D body = player.GetComponent<Rigidbody2D>();
-
-            if (body != null)
-                body.linearVelocity = Vector2.zero;
-
-            player.transform.position = destination.position;
+            player.TeleportTo(destination.position);
         }
     }
 }
