@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Mossbound.Player.StateMachine;
 using UnityEngine;
@@ -13,6 +14,25 @@ namespace Mossbound.Player
         private static readonly int IsDashingParameter = Animator.StringToHash("IsDashing");
         private static readonly int IsWallSlidingParameter = Animator.StringToHash("IsWallSliding");
         private static readonly int LandedParameter = Animator.StringToHash("Landed");
+
+        private enum AnimationPose
+        {
+            Ground = 0,
+            Air = 1,
+            Dash = 2,
+            WallSlide = 3,
+        }
+
+        private static readonly Dictionary<PlayerStateId, AnimationPose> PoseByState = new Dictionary<PlayerStateId, AnimationPose>
+        {
+            { PlayerStateId.Grounded, AnimationPose.Ground },
+            { PlayerStateId.Jumping, AnimationPose.Air },
+            { PlayerStateId.DoubleJumping, AnimationPose.Air },
+            { PlayerStateId.Falling, AnimationPose.Air },
+            { PlayerStateId.WallJumping, AnimationPose.Air },
+            { PlayerStateId.Dashing, AnimationPose.Dash },
+            { PlayerStateId.WallSliding, AnimationPose.WallSlide },
+        };
 
         [SerializeField] private PlayerController player;
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -76,6 +96,12 @@ namespace Mossbound.Player
             basePosition = transform.localPosition;
             currentScale = baseScale;
             baseColor = spriteRenderer.color;
+
+            foreach (PlayerStateId state in Enum.GetValues(typeof(PlayerStateId)))
+            {
+                if (!PoseByState.ContainsKey(state))
+                    Debug.LogError($"{nameof(PlayerVisuals)}: no animation pose for state '{state}', add it to {nameof(PoseByState)}.", this);
+            }
         }
 
         private void Start()
@@ -128,7 +154,7 @@ namespace Mossbound.Player
 
         private Vector3 GetTargetScale(PlayerStateId state)
         {
-            if (state == PlayerStateId.Grounded || state == PlayerStateId.Dashing || state == PlayerStateId.WallSliding)
+            if (PoseByState[state] != AnimationPose.Air)
                 return baseScale;
 
             float amount = Mathf.Clamp01(Mathf.Abs(player.Velocity.y) / maxStretchSpeed);
@@ -190,10 +216,10 @@ namespace Mossbound.Player
             animator.SetFloat(SpeedParameter, speed);
             animator.SetFloat(VerticalVelocityParameter, player.Velocity.y);
             animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.MaxMoveSpeed));
-            animator.SetBool(IsAirborneParameter, state != PlayerStateId.Grounded
-                && state != PlayerStateId.Dashing && state != PlayerStateId.WallSliding); //Якщо додавати більше анімацій, скоро це стане важко підтримувати
-            animator.SetBool(IsDashingParameter, state == PlayerStateId.Dashing);
-            animator.SetBool(IsWallSlidingParameter, state == PlayerStateId.WallSliding);
+            AnimationPose pose = PoseByState[state];
+            animator.SetBool(IsAirborneParameter, pose == AnimationPose.Air);
+            animator.SetBool(IsDashingParameter, pose == AnimationPose.Dash);
+            animator.SetBool(IsWallSlidingParameter, pose == AnimationPose.WallSlide);
         }
 
         private void UpdateDashTrail()
