@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Mossbound.UI
@@ -9,16 +8,13 @@ namespace Mossbound.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class DialogueBox : MonoBehaviour
     {
-        [SerializeField] private InputActionReference continueAction;
+        [Tooltip("Reads the dialogue controls; this window only shows text.")]
+        [SerializeField] private DialogueInput input;
         [SerializeField] private Text speakerText;
         [SerializeField] private Text bodyText;
         [SerializeField] private Text choicesText;
         [SerializeField] private GameObject continueHint;
         [SerializeField, Min(1f)] private float charactersPerSecond = 45f;
-
-        //Не думаю що це має бути тут, бо тоді для кожного діалогового вікна треба буде робити свою перевірку інпуту
-        private static readonly Key[] ChoiceKeys = { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4 };
-        private static readonly Key[] NumpadKeys = { Key.Numpad1, Key.Numpad2, Key.Numpad3, Key.Numpad4 };
 
         private CanvasGroup canvasGroup;
 
@@ -26,7 +22,7 @@ namespace Mossbound.UI
 
         private void Awake()
         {
-            Require.Assigned(continueAction, nameof(continueAction), this);
+            Require.Assigned(input, nameof(input), this);
             Require.Assigned(speakerText, nameof(speakerText), this);
             Require.Assigned(bodyText, nameof(bodyText), this);
             Require.Assigned(choicesText, nameof(choicesText), this);
@@ -34,16 +30,6 @@ namespace Mossbound.UI
 
             canvasGroup = GetComponent<CanvasGroup>();
             SetVisible(false);
-        }
-
-        private void OnEnable()
-        {
-            continueAction.action.Enable();
-        }
-
-        private void OnDisable()
-        {
-            continueAction.action.Disable();
         }
 
         public bool TryOpen()
@@ -77,7 +63,7 @@ namespace Mossbound.UI
         {
             yield return TypeLine(speaker, question);
 
-            int count = Mathf.Min(choices.Length, ChoiceKeys.Length);
+            int count = Mathf.Min(choices.Length, input.MaxChoices);
             var parts = new string[count];
             for (int i = 0; i < count; i++)
                 parts[i] = $"{i + 1}  {choices[i]}";
@@ -87,7 +73,7 @@ namespace Mossbound.UI
             while (choice < 0)
             {
                 yield return null;
-                choice = PressedChoice(count);
+                choice = input.PressedChoice(count);
             }
 
             choicesText.text = string.Empty;
@@ -103,7 +89,7 @@ namespace Mossbound.UI
             yield return null;
             for (float shown = 0f; shown < text.Length; shown += charactersPerSecond * Time.deltaTime)
             {
-                if (ContinuePressed())
+                if (input.ContinuePressed)
                     break;
                 bodyText.text = text.Substring(0, (int)shown);
                 yield return null;
@@ -114,27 +100,8 @@ namespace Mossbound.UI
         private IEnumerator WaitForContinue()
         {
             yield return null;
-            while (!ContinuePressed())
+            while (!input.ContinuePressed)
                 yield return null;
-        }
-
-        private bool ContinuePressed()
-        {
-            if (continueAction.action.WasPressedThisFrame())
-                return true;
-            Keyboard keyboard = Keyboard.current;
-            return keyboard != null && (keyboard.spaceKey.wasPressedThisFrame || keyboard.enterKey.wasPressedThisFrame);
-        }
-
-        private static int PressedChoice(int count)
-        {
-            Keyboard keyboard = Keyboard.current;
-            if (keyboard == null)
-                return -1;
-            for (int i = 0; i < count; i++)
-                if (keyboard[ChoiceKeys[i]].wasPressedThisFrame || keyboard[NumpadKeys[i]].wasPressedThisFrame)
-                    return i;
-            return -1;
         }
 
         private void SetVisible(bool visible)

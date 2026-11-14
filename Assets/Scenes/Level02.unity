@@ -34816,6 +34816,7 @@ GameObject:
   - component: {fileID: 1801257251}
   - component: {fileID: 1801257250}
   - component: {fileID: 1801257253}
+  - component: {fileID: 1801257254}
   m_Layer: 5
   m_Name: Dialogue Box
   m_TagString: Untagged
@@ -34908,12 +34909,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85029d01d8f234637a3130c4eaa9b410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.UI.DialogueBox
-  continueAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  input: {fileID: 1801257254}
   speakerText: {fileID: 1969861408}
   bodyText: {fileID: 1238164026}
   choicesText: {fileID: 1731519249}
   continueHint: {fileID: 1872635526}
   charactersPerSecond: 45
+--- !u!114 &1801257254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801257248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9f55a40656f4d1eb538276b716c3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.UI.DialogueInput
+  continueAction: {fileID: 6909034789060281983, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  choiceActions:
+  - {fileID: 8513574024170774410, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -998785769916600998, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 4953894515919278481, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -469558460687760606, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &1805027571
 GameObject:
   m_ObjectHideFlags: 0
