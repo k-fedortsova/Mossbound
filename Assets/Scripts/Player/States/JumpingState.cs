@@ -20,7 +20,7 @@ namespace Mossbound.Player.States
         protected override float GetGravityMultiplier()
         {
             if (Player.Velocity.y > 0f && !Player.Input.IsJumpHeld)
-                return Settings.jumpCutGravityMultiplier;
+                return Settings.JumpCutGravityMultiplier;
             return base.GetGravityMultiplier();
         }
     }

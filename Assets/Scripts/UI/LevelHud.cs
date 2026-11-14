@@ -30,6 +30,15 @@ namespace Mossbound.UI
 
         private void Awake()
         {
+            Require.Assigned(session, nameof(session), this);
+            Require.Assigned(timerText, nameof(timerText), this);
+            Require.Assigned(fallsText, nameof(fallsText), this);
+            Require.Assigned(banner, nameof(banner), this);
+            Require.Assigned(bannerTitle, nameof(bannerTitle), this);
+            Require.Assigned(bannerHint, nameof(bannerHint), this);
+            Require.Assigned(finishPanel, nameof(finishPanel), this);
+            Require.Assigned(finishStats, nameof(finishStats), this);
+
             finishPanel.SetActive(false);
             banner.alpha = 0f;
         }

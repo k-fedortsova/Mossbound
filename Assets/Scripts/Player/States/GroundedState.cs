@@ -36,7 +36,7 @@ namespace Mossbound.Player.States
                 return;
             }
 
-            Player.ApplyHorizontalMovement(Settings.groundAcceleration, Settings.groundDeceleration, deltaTime);
+            Player.ApplyHorizontalMovement(Settings.GroundAcceleration, Settings.GroundDeceleration, deltaTime);
             Player.ApplyGravity(1f, deltaTime);
         }
     }

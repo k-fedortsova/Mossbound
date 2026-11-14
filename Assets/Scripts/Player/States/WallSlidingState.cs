@@ -19,7 +19,7 @@ namespace Mossbound.Player.States
             wallSide = Player.Sensor.WallSide;
             releaseTimer = 0f;
             Player.SetFacing(wallSide);
-            Player.Velocity = new Vector2(0f, -Settings.wallSlideSpeed);
+            Player.Velocity = new Vector2(0f, -Settings.WallSlideSpeed);
         }
 
         public override void FixedTick(float deltaTime)
@@ -45,7 +45,7 @@ namespace Mossbound.Player.States
                 }
             }
 
-            if (Settings.allowDashFromWall && Player.IsDashBuffered && Player.CanAirDash)
+            if (Settings.AllowDashFromWall && Player.IsDashBuffered && Player.CanAirDash)
             {
                 Player.SetFacing(-wallSide);
                 ChangeState(Player.DashingState);
@@ -59,14 +59,14 @@ namespace Mossbound.Player.States
             }
 
             bool holdingTowardWall = Player.Input.Horizontal == wallSide;
-            releaseTimer = holdingTowardWall || !Settings.wallClingRequiresInput ? 0f : releaseTimer + deltaTime;
-            if (releaseTimer > Settings.wallCoyoteTime)
+            releaseTimer = holdingTowardWall || !Settings.WallClingRequiresInput ? 0f : releaseTimer + deltaTime;
+            if (releaseTimer > Settings.WallCoyoteTime)
             {
                 ChangeState(Player.FallingState);
                 return;
             }
 
-            Player.Velocity = new Vector2(0f, -Settings.wallSlideSpeed);
+            Player.Velocity = new Vector2(0f, -Settings.WallSlideSpeed);
         }
     }
 }

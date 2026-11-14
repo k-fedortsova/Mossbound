@@ -14,11 +14,12 @@ namespace Mossbound.Level
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var input = other.GetComponentInParent<PlayerInputReader>();
-            if (input == null || GameSession.Instance.IsFinished)
+            var player = other.GetComponentInParent<PlayerController>();
+            if (player == null || GameSession.Instance.IsFinished)
                 return;
 
-            input.enabled = false;
+            player.Input.enabled = false;
+            player.SetFrozen(true);
             GameSession.Instance.CompleteLevel();
         }
     }

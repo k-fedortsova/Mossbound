@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Mossbound.Player.StateMachine;
 using UnityEngine;
@@ -13,6 +14,25 @@ namespace Mossbound.Player
         private static readonly int IsDashingParameter = Animator.StringToHash("IsDashing");
         private static readonly int IsWallSlidingParameter = Animator.StringToHash("IsWallSliding");
         private static readonly int LandedParameter = Animator.StringToHash("Landed");
+
+        private enum AnimationPose
+        {
+            Ground = 0,
+            Air = 1,
+            Dash = 2,
+            WallSlide = 3,
+        }
+
+        private static readonly Dictionary<PlayerStateId, AnimationPose> PoseByState = new Dictionary<PlayerStateId, AnimationPose>
+        {
+            { PlayerStateId.Grounded, AnimationPose.Ground },
+            { PlayerStateId.Jumping, AnimationPose.Air },
+            { PlayerStateId.DoubleJumping, AnimationPose.Air },
+            { PlayerStateId.Falling, AnimationPose.Air },
+            { PlayerStateId.WallJumping, AnimationPose.Air },
+            { PlayerStateId.Dashing, AnimationPose.Dash },
+            { PlayerStateId.WallSliding, AnimationPose.WallSlide },
+        };
 
         [SerializeField] private PlayerController player;
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -76,6 +96,12 @@ namespace Mossbound.Player
             basePosition = transform.localPosition;
             currentScale = baseScale;
             baseColor = spriteRenderer.color;
+
+            foreach (PlayerStateId state in Enum.GetValues(typeof(PlayerStateId)))
+            {
+                if (!PoseByState.ContainsKey(state))
+                    Debug.LogError($"{nameof(PlayerVisuals)}: no animation pose for state '{state}', add it to {nameof(PoseByState)}.", this);
+            }
         }
 
         private void Start()
@@ -128,7 +154,7 @@ namespace Mossbound.Player
 
         private Vector3 GetTargetScale(PlayerStateId state)
         {
-            if (state == PlayerStateId.Grounded || state == PlayerStateId.Dashing || state == PlayerStateId.WallSliding)
+            if (PoseByState[state] != AnimationPose.Air)
                 return baseScale;
 
             float amount = Mathf.Clamp01(Mathf.Abs(player.Velocity.y) / maxStretchSpeed);
@@ -140,7 +166,7 @@ namespace Mossbound.Player
         {
             float target = 0f;
             if (state != PlayerStateId.WallSliding)
-                target = -maxTilt * Mathf.Clamp(player.Velocity.x / player.Settings.maxMoveSpeed, -1f, 1f);
+                target = -maxTilt * Mathf.Clamp(player.Velocity.x / player.Settings.MaxMoveSpeed, -1f, 1f);
 
             tilt = Mathf.Lerp(tilt, target, 1f - Mathf.Exp(-tiltSpeed * Time.deltaTime));
             transform.localRotation = Quaternion.Euler(0f, 0f, tilt);
@@ -189,11 +215,11 @@ namespace Mossbound.Player
             float speed = Mathf.Abs(player.Velocity.x);
             animator.SetFloat(SpeedParameter, speed);
             animator.SetFloat(VerticalVelocityParameter, player.Velocity.y);
-            animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.maxMoveSpeed));
-            animator.SetBool(IsAirborneParameter, state != PlayerStateId.Grounded
-                && state != PlayerStateId.Dashing && state != PlayerStateId.WallSliding);
-            animator.SetBool(IsDashingParameter, state == PlayerStateId.Dashing);
-            animator.SetBool(IsWallSlidingParameter, state == PlayerStateId.WallSliding);
+            animator.SetFloat(RunAnimSpeedParameter, Mathf.Max(minRunAnimSpeed, speed / player.Settings.MaxMoveSpeed));
+            AnimationPose pose = PoseByState[state];
+            animator.SetBool(IsAirborneParameter, pose == AnimationPose.Air);
+            animator.SetBool(IsDashingParameter, pose == AnimationPose.Dash);
+            animator.SetBool(IsWallSlidingParameter, pose == AnimationPose.WallSlide);
         }
 
         private void UpdateDashTrail()
@@ -227,6 +253,7 @@ namespace Mossbound.Player
             }
         }
 
+        //Object Pool з префабчику - і вашій грі стане жити легше
         private void SpawnGhost()
         {
             if (ghostRoot == null)
@@ -244,6 +271,7 @@ namespace Mossbound.Player
 
         private SpriteRenderer CreateGhost()
         {
+            //Object Pool з префабчику - і вашій грі стане жити легше
             var ghost = new GameObject("Ghost").AddComponent<SpriteRenderer>();
             ghost.transform.SetParent(ghostRoot, false);
             ghost.sharedMaterial = spriteRenderer.sharedMaterial;
@@ -252,6 +280,7 @@ namespace Mossbound.Player
             return ghost;
         }
 
+        //класне рішення
         private void Squash(Vector2 scale)
         {
             currentScale = new Vector3(baseScale.x * scale.x, baseScale.y * scale.y, baseScale.z);

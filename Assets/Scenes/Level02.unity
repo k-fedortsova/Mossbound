@@ -3875,7 +3875,7 @@ GameObject:
   - component: {fileID: 417951952}
   - component: {fileID: 417951951}
   - component: {fileID: 417951950}
-  - component: {fileID: 417951949}
+  - component: {fileID: 417951953}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3892,32 +3892,12 @@ Transform:
   m_GameObject: {fileID: 417951947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 2.2, z: -10}
+  m_LocalPosition: {x: 2.9500003, y: 2.19, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &417951949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417951947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ae4b22c65e34e8d92d72390b052a47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.CameraSystem.CameraFollow
-  target: {fileID: 1495268809}
-  offset: {x: 0, y: 1.5}
-  smoothTime: 0.2
-  lookAhead: 1.75
-  lookTurnDelay: 0.15
-  dashLookAhead: 2.5
-  dashLookHoldTime: 0.15
-  verticalDeadZone: 1.25
 --- !u!114 &417951950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4021,6 +4001,38 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &417951953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417951947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &420305855
 GameObject:
   m_ObjectHideFlags: 0
@@ -34562,6 +34574,113 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1755456037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755456040}
+  - component: {fileID: 1755456039}
+  - component: {fileID: 1755456038}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1755456038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755456037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
+  CameraDistance: 10
+  DeadZoneDepth: 0
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 1
+      Size: {x: 0.05, y: 0.2}
+    HardLimits:
+      Enabled: 1
+      Size: {x: 0.6, y: 0.6}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 1.5, z: 0}
+  Damping: {x: 0.4, y: 0.6, z: 0}
+  Lookahead:
+    Enabled: 1
+    Time: 0.4
+    Smoothing: 12
+    IgnoreY: 1
+--- !u!114 &1755456039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755456037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 1495268809}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60
+    OrthographicSize: 6.5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &1755456040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755456037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.9500003, y: 2.19, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781760626
 GameObject:
   m_ObjectHideFlags: 0
@@ -34697,6 +34816,7 @@ GameObject:
   - component: {fileID: 1801257251}
   - component: {fileID: 1801257250}
   - component: {fileID: 1801257253}
+  - component: {fileID: 1801257254}
   m_Layer: 5
   m_Name: Dialogue Box
   m_TagString: Untagged
@@ -34789,12 +34909,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85029d01d8f234637a3130c4eaa9b410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.UI.DialogueBox
-  continueAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  input: {fileID: 1801257254}
   speakerText: {fileID: 1969861408}
   bodyText: {fileID: 1238164026}
   choicesText: {fileID: 1731519249}
   continueHint: {fileID: 1872635526}
   charactersPerSecond: 45
+--- !u!114 &1801257254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801257248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9f55a40656f4d1eb538276b716c3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.UI.DialogueInput
+  continueAction: {fileID: 6909034789060281983, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  choiceActions:
+  - {fileID: 8513574024170774410, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -998785769916600998, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: 4953894515919278481, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  - {fileID: -469558460687760606, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &1805027571
 GameObject:
   m_ObjectHideFlags: 0
@@ -34826,7 +34964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Level.Portal
   portalVisual: {fileID: 676381205}
-  portalAnimator: {fileID: 676381206}
   destination: {fileID: 644459039}
   cooldown: 0.75
 --- !u!70 &1805027573
@@ -41798,3 +41935,4 @@ SceneRoots:
   - {fileID: 803721564}
   - {fileID: 993419924}
   - {fileID: 1805027574}
+  - {fileID: 1755456040}

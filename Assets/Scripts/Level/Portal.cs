@@ -8,7 +8,6 @@ namespace Mossbound.Level
     {
         [Header("Portal")]
         [SerializeField] private GameObject portalVisual;
-        [SerializeField] private Animator portalAnimator;
 
         [Header("Teleport")]
         [SerializeField] private Transform destination;
@@ -26,8 +25,7 @@ namespace Mossbound.Level
             if (portalVisual == null)
                 portalVisual = gameObject;
 
-            if (portalAnimator == null)
-                portalAnimator = portalVisual.GetComponent<Animator>();
+            Require.Assigned(destination, nameof(destination), this);
 
             SetPortalActive(false);
         }
@@ -58,23 +56,8 @@ namespace Mossbound.Level
             if (player == null)
                 return;
 
-            if (destination == null)
-            {
-                Debug.LogWarning(
-                    "Portal destination is not assigned.",
-                    this
-                );
-                return;
-            }
-
             lastTeleportTime = Time.time;
-
-            Rigidbody2D body = player.GetComponent<Rigidbody2D>();
-
-            if (body != null)
-                body.linearVelocity = Vector2.zero;
-
-            player.transform.position = destination.position;
+            player.TeleportTo(destination.position);
         }
     }
 }
