@@ -15,7 +15,7 @@ namespace Mossbound.Player.States
         public override void Enter()
         {
             bool walkedOffLedge = Player.StateMachine.PreviousState == Player.GroundedState;
-            coyoteTimer = walkedOffLedge ? Settings.coyoteTime : 0f;
+            coyoteTimer = walkedOffLedge ? Settings.CoyoteTime : 0f;
         }
 
         public override void FixedTick(float deltaTime)

@@ -1,3 +1,4 @@
+using System;
 using Mossbound.Level;
 using Mossbound.Player.StateMachine;
 using Mossbound.Player.States;
@@ -7,6 +8,7 @@ namespace Mossbound.Player
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputReader), typeof(PlayerCollisionSensor))]
     [RequireComponent(typeof(PlayerAbilities))]
+    //Cправжній монстр а не клас, занадто багато відповідальностей, які мають бути в середині стейтів 
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerMovementSettings settings;
@@ -21,6 +23,8 @@ namespace Mossbound.Player
         private float groundDashCooldownTimer;
         private float wallCoyoteTimer;
         private int wallCoyoteSide;
+        
+        public event Action Teleported;
 
         public PlayerMovementSettings Settings => settings;
         public PlayerInputReader Input { get; private set; }
@@ -50,8 +54,8 @@ namespace Mossbound.Player
         public bool CanDoubleJump => Abilities.Has(PlayerAbility.DoubleJump) && AirJumpsLeft > 0;
         public bool CanGroundDash => Abilities.Has(PlayerAbility.Dash) && groundDashCooldownTimer <= 0f;
         public bool CanAirDash => Abilities.Has(PlayerAbility.Dash) && AirDashesLeft > 0;
-        public bool IsJumpBuffered => Input.IsJumpBuffered(settings.jumpBufferTime);
-        public bool IsDashBuffered => Input.IsDashBuffered(settings.dashBufferTime);
+        public bool IsJumpBuffered => Input.IsJumpBuffered(settings.JumpBufferTime);
+        public bool IsDashBuffered => Input.IsDashBuffered(settings.DashBufferTime);
 
         public int WallJumpSide
         {
@@ -117,8 +121,16 @@ namespace Mossbound.Player
             if (frozen)
                 body.linearVelocity = Vector2.zero;
         }
+        
+        public void TeleportTo(Vector2 position)
+        {
+            body.position = position;
+            transform.position = new Vector3(position.x, position.y, transform.position.z);
+            ResetMotion();
+            Teleported?.Invoke();
+        }
 
-        public void ResetMotion()
+        private void ResetMotion()
         {
             StateMachine.ChangeState(FallingState);
             body.linearVelocity = Vector2.zero;
@@ -132,8 +144,8 @@ namespace Mossbound.Player
 
         public void RestoreAirCharges()
         {
-            AirJumpsLeft = settings.maxAirJumps;
-            AirDashesLeft = settings.maxAirDashes;
+            AirJumpsLeft = settings.MaxAirJumps;
+            AirDashesLeft = settings.MaxAirDashes;
             LastWallJumpSide = 0;
         }
 
@@ -141,7 +153,7 @@ namespace Mossbound.Player
         {
             if (side == 0 || !Abilities.Has(PlayerAbility.WallJump))
                 return false;
-            return settings.allowSameWallRepeat || side != LastWallJumpSide;
+            return settings.AllowSameWallRepeat || side != LastWallJumpSide;
         }
 
         public bool CanStartWallSlide()
@@ -151,7 +163,7 @@ namespace Mossbound.Player
                 return false;
             if (Velocity.y > 0f)
                 return false;
-            return !settings.wallClingRequiresInput || Input.Horizontal == side;
+            return !settings.WallClingRequiresInput || Input.Horizontal == side;
         }
 
         public void StartWallJump(int side)
@@ -175,12 +187,12 @@ namespace Mossbound.Player
         public void StartDashExit(int direction)
         {
             dashExitDirection = direction;
-            dashExitTimer = settings.dashExitDecayTime;
+            dashExitTimer = settings.DashExitDecayTime;
         }
 
         public void StartGroundDashCooldown()
         {
-            groundDashCooldownTimer = settings.dashCooldown;
+            groundDashCooldownTimer = settings.DashCooldown;
         }
 
         public void ClearWallCoyote()
@@ -197,13 +209,13 @@ namespace Mossbound.Player
             Vector2 velocity = body.linearVelocity;
             if (dashExitTimer > 0f && input == dashExitDirection)
             {
-                float progress = 1f - dashExitTimer / settings.dashExitDecayTime;
-                float speed = Mathf.Lerp(settings.dashExitSpeed, settings.maxMoveSpeed, progress);
-                velocity.x = dashExitDirection * Mathf.Max(speed, settings.maxMoveSpeed);
+                float progress = 1f - dashExitTimer / settings.DashExitDecayTime;
+                float speed = Mathf.Lerp(settings.DashExitSpeed, settings.MaxMoveSpeed, progress);
+                velocity.x = dashExitDirection * Mathf.Max(speed, settings.MaxMoveSpeed);
             }
             else
             {
-                float target = input * settings.maxMoveSpeed;
+                float target = input * settings.MaxMoveSpeed;
                 bool speedingUp = input != 0 && (Mathf.Approximately(velocity.x, 0f) || Mathf.Sign(velocity.x) == input);
                 float rate = speedingUp ? acceleration : deceleration;
                 velocity.x = Mathf.MoveTowards(velocity.x, target, rate * deltaTime);
@@ -217,7 +229,7 @@ namespace Mossbound.Player
         {
             Vector2 velocity = body.linearVelocity;
             velocity.y -= settings.Gravity * multiplier * deltaTime;
-            velocity.y = Mathf.Max(velocity.y, -settings.maxFallSpeed);
+            velocity.y = Mathf.Max(velocity.y, -settings.MaxFallSpeed);
             body.linearVelocity = velocity;
         }
 
@@ -229,7 +241,7 @@ namespace Mossbound.Player
 
             if (!Sensor.IsGrounded && Sensor.WallSide != 0)
             {
-                wallCoyoteTimer = settings.wallCoyoteTime;
+                wallCoyoteTimer = settings.WallCoyoteTime;
                 wallCoyoteSide = Sensor.WallSide;
             }
             else
