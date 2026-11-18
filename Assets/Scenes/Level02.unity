@@ -5656,7 +5656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
@@ -21679,6 +21679,8 @@ GameObject:
   - component: {fileID: 993419924}
   - component: {fileID: 993419923}
   - component: {fileID: 993419922}
+  - component: {fileID: 993419926}
+  - component: {fileID: 993419925}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -21698,18 +21700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ddeb030b0ab4895bd812815c2b1777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Level.WizardNpc
-  interactAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  dialogue: {fileID: 1801257253}
-  prompt: {fileID: 638796098}
   spriteRenderer: {fileID: 1569614613}
-  greeting:
-  - speaker: Old Wizard
-    text: Ah, a traveller! Few find their way this deep into the mossy woods.
-  - speaker: Knight
-    text: I seek the castle beyond the old bridges.
-  - speaker: Old Wizard
-    text: Those bridges are broken and treacherous. Answer my riddle, and I shall
-      open a shorter path.
+  greeting: {fileID: 11400000, guid: 32c91579db724f1fcabfb0b627ee3bd7, type: 2}
   riddleSpeaker: Old Wizard
   question: I am the path that has no stones, crossing vast kingdoms without ever
     moving. I can carry you to the highest elven towers or the deepest dwarven mines
@@ -21808,6 +21800,33 @@ Transform:
   - {fileID: 1569614615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993419925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993419921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f36bfd44ca2da9c82e2c5f207439cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Dialogue.DialogueRunner
+  dialogueBox: {fileID: 0}
+--- !u!114 &993419926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993419921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509c05486f43602c2803cfd5f2407355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Level.NpcInteractionZone
+  interactAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  prompt: {fileID: 638796098}
 --- !u!1 &1001957739
 GameObject:
   m_ObjectHideFlags: 0
