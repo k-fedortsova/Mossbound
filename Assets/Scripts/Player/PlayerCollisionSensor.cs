@@ -46,7 +46,7 @@ namespace Mossbound.Player
         {
             Vector2 size = new Vector2(0.05f, bounds.size.y * wallCheckHeight);
             Vector2 origin = new Vector2(bounds.center.x + direction * (bounds.extents.x - size.x * 0.5f), bounds.center.y);
-            RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, new Vector2(direction, 0f), settings.wallCheckDistance, wallLayers);
+            RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0f, new Vector2(direction, 0f), settings.WallCheckDistance, wallLayers);
             return hit.collider != null && Mathf.Abs(hit.normal.x) >= minSurfaceNormal;
         }
 
@@ -62,9 +62,9 @@ namespace Mossbound.Player
                 new Vector3(bounds.size.x * groundCheckWidth, groundCheckDistance));
 
             Gizmos.color = WallSide != 0 ? Color.cyan : Color.gray;
-            Vector3 wallSize = new Vector3(settings.wallCheckDistance, bounds.size.y * wallCheckHeight);
-            Gizmos.DrawWireCube(new Vector3(bounds.max.x + settings.wallCheckDistance * 0.5f, bounds.center.y), wallSize);
-            Gizmos.DrawWireCube(new Vector3(bounds.min.x - settings.wallCheckDistance * 0.5f, bounds.center.y), wallSize);
+            Vector3 wallSize = new Vector3(settings.WallCheckDistance, bounds.size.y * wallCheckHeight);
+            Gizmos.DrawWireCube(new Vector3(bounds.max.x + settings.WallCheckDistance * 0.5f, bounds.center.y), wallSize);
+            Gizmos.DrawWireCube(new Vector3(bounds.min.x - settings.WallCheckDistance * 0.5f, bounds.center.y), wallSize);
         }
     }
 }

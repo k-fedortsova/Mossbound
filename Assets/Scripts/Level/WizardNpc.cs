@@ -1,48 +1,35 @@
 using System;
 using System.Collections;
+using Mossbound.Dialogue;
 using Mossbound.Gameplay;
 using Mossbound.Player;
 using Mossbound.UI;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Mossbound.Level
 {
-    public enum WizardState { Idle, InteractionAvailable, RiddleActive, CorrectAnswer, WrongAnswer, Disappearing, Finished }
-
-    [Serializable]
-    public struct DialogueLine
+    public enum WizardState
     {
-        public string speaker;
-        [TextArea(2, 4)] public string text;
-
-        public DialogueLine(string speaker, string text)
-        {
-            this.speaker = speaker;
-            this.text = text;
-        }
+        Idle = 0,
+        InteractionAvailable = 1,
+        RiddleActive = 2,
+        CorrectAnswer = 3,
+        WrongAnswer = 4,
+        Disappearing = 5,
+        Finished = 6,
     }
 
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(NpcInteractionZone), typeof(DialogueRunner))]
     public class WizardNpc : MonoBehaviour
     {
         private const string Wizard = "Old Wizard";
-        private const string Knight = "Knight";
 
-        [SerializeField] private InputActionReference interactAction;
-        [SerializeField] private DialogueBox dialogue;
-        [Tooltip("\"Press E\" hint shown while the player is in range.")]
-        [SerializeField] private GameObject prompt;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         [Header("Conversation")]
-        [SerializeField] private DialogueLine[] greeting =
-        {
-            new(Wizard, "Ah, a traveller! Few find their way this deep into the mossy woods."),
-            new(Knight, "I seek the castle beyond the old bridges."),
-            new(Wizard, "Those bridges are broken and treacherous. Answer my riddle, and I shall open a shorter path."),
-        };
+        [Tooltip("Greeting lines shown before the riddle.")]
+        [SerializeField] private DialogueData greeting;
         [SerializeField] private string riddleSpeaker = Wizard;
         [SerializeField, TextArea(3, 6)] private string question =
             "I am the path that has no stones, crossing vast kingdoms without ever moving. " +
@@ -64,84 +51,82 @@ namespace Mossbound.Level
         [SerializeField, Min(0.01f)] private float disappearTime = 0.8f;
         [SerializeField, Min(0f)] private float disappearRise = 0.5f;
 
-        private BoxCollider2D interactionZone;
-        private PlayerController player;
+        private NpcInteractionZone zone;
+        private DialogueRunner runner;
+        private bool answeredCorrectly;
 
         public WizardState State { get; private set; } = WizardState.Idle;
 
-        private void Reset()
-        {
-            GetComponent<BoxCollider2D>().isTrigger = true;
-        }
-
         private void Awake()
         {
-            interactionZone = GetComponent<BoxCollider2D>();
-            SetPrompt(false);
+            zone = GetComponent<NpcInteractionZone>();
+            runner = GetComponent<DialogueRunner>();
+
+            Require.Assigned(greeting, nameof(greeting), this);
+            Require.Assigned(spriteRenderer, nameof(spriteRenderer), this);
+            if (Require.NotEmpty(answers, nameof(answers), this))
+                Require.InRange(correctAnswer, answers.Length, nameof(correctAnswer), this);
         }
 
         private void OnEnable()
         {
-            interactAction.action.Enable();
+            zone.PlayerEntered += OnPlayerEntered;
+            zone.PlayerExited += OnPlayerExited;
+            zone.Interacted += OnInteracted;
+            runner.Finished += OnConversationFinished;
+            runner.Interrupted += OnConversationInterrupted;
         }
 
         private void OnDisable()
         {
-            interactAction.action.Disable();
+            runner.Interrupt();
+
+            zone.PlayerEntered -= OnPlayerEntered;
+            zone.PlayerExited -= OnPlayerExited;
+            zone.Interacted -= OnInteracted;
+            runner.Finished -= OnConversationFinished;
+            runner.Interrupted -= OnConversationInterrupted;
         }
 
-        private void Update()
+        private void OnPlayerEntered(PlayerController player)
         {
-            if (State == WizardState.InteractionAvailable && interactAction.action.WasPressedThisFrame() && dialogue.TryOpen())
-                StartCoroutine(Converse());
+            if (State == WizardState.Idle)
+                State = WizardState.InteractionAvailable;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnPlayerExited()
         {
-            if (State != WizardState.Idle)
-                return;
-
-            var controller = other.GetComponentInParent<PlayerController>();
-            if (controller == null)
-                return;
-
-            player = controller;
-            State = WizardState.InteractionAvailable;
-            SetPrompt(true);
+            if (State == WizardState.InteractionAvailable)
+                State = WizardState.Idle;
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void OnInteracted(PlayerController player)
         {
-            if (State != WizardState.InteractionAvailable || other.GetComponentInParent<PlayerController>() != player)
+            if (State != WizardState.InteractionAvailable)
                 return;
 
-            player = null;
-            State = WizardState.Idle;
-            SetPrompt(false);
+            if (!runner.TryRun(player, Converse()))
+                return;
+
+            State = WizardState.RiddleActive;
+            zone.Interactable = false;
         }
 
         private IEnumerator Converse()
         {
-            State = WizardState.RiddleActive;
-            SetPrompt(false);
-            player.SetFrozen(true);
-
-            foreach (DialogueLine line in greeting)
-                yield return dialogue.Say(line.speaker, line.text);
+            yield return runner.PlayLines(greeting);
 
             int answer = -1;
-            yield return dialogue.Ask(riddleSpeaker, question, answers, picked => answer = picked);
+            yield return runner.Ask(riddleSpeaker, question, answers, picked => answer = picked);
 
-            bool correct = answer == correctAnswer;
-            State = correct ? WizardState.CorrectAnswer : WizardState.WrongAnswer;
-            DialogueLine reply = correct ? correctReply : wrongReply;
-            yield return dialogue.Say(reply.speaker, reply.text);
+            answeredCorrectly = answer == correctAnswer;
+            State = answeredCorrectly ? WizardState.CorrectAnswer : WizardState.WrongAnswer;
+            yield return runner.Say(answeredCorrectly ? correctReply : wrongReply);
+        }
 
-            dialogue.Close();
-            player.SetFrozen(false);
-            player.Input.ClearBuffers();
-
-            if (correct)
+        private void OnConversationFinished()
+        {
+            if (answeredCorrectly)
             {
                 GameSession.Instance.ShowMessage(correctTitle, correctHint);
                 portalUnlocked.Invoke();
@@ -151,13 +136,19 @@ namespace Mossbound.Level
                 GameSession.Instance.ShowMessage(wrongTitle, wrongHint);
             }
 
-            yield return Disappear();
+            StartCoroutine(Disappear());
+        }
+
+        private void OnConversationInterrupted()
+        {
+            State = zone.IsPlayerInRange ? WizardState.InteractionAvailable : WizardState.Idle;
+            zone.Interactable = true;
         }
 
         private IEnumerator Disappear()
         {
             State = WizardState.Disappearing;
-            interactionZone.enabled = false;
+            zone.Interactable = false;
 
             Transform visual = spriteRenderer.transform;
             Vector3 start = visual.localPosition;
@@ -172,19 +163,6 @@ namespace Mossbound.Level
 
             spriteRenderer.enabled = false;
             State = WizardState.Finished;
-        }
-
-        private void SetPrompt(bool visible)
-        {
-            if (prompt != null)
-                prompt.SetActive(visible);
-        }
-
-        private void OnDrawGizmos()
-        {
-            var box = GetComponent<BoxCollider2D>();
-            Gizmos.color = new Color(0.6f, 0.4f, 1f, 0.8f);
-            Gizmos.DrawWireCube(transform.position + (Vector3)box.offset, box.size);
         }
     }
 }

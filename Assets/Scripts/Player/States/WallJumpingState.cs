@@ -24,8 +24,8 @@ namespace Mossbound.Player.States
             Player.ClearWallCoyote();
             Player.LastWallJumpSide = wallSide;
             Player.SetFacing(-wallSide);
-            Player.LockControl(wallSide, Settings.wallJumpControlLockTime);
-            Player.Velocity = new Vector2(-wallSide * Settings.wallJumpHorizontalSpeed, Settings.wallJumpVerticalSpeed);
+            Player.LockControl(wallSide, Settings.WallJumpControlLockTime);
+            Player.Velocity = new Vector2(-wallSide * Settings.WallJumpHorizontalSpeed, Settings.WallJumpVerticalSpeed);
         }
     }
 }

@@ -13,14 +13,14 @@ namespace Mossbound.Player.States
             if (TryLand() || TryJump() || TryDash() || TryStartWallSlide())
                 return;
 
-            Player.ApplyHorizontalMovement(Settings.airAcceleration, Settings.airAcceleration, deltaTime);
+            Player.ApplyHorizontalMovement(Settings.AirAcceleration, Settings.AirAcceleration, deltaTime);
             Player.ApplyGravity(GetGravityMultiplier(), deltaTime);
             OnAfterMovement();
         }
 
         protected virtual float GetGravityMultiplier()
         {
-            return Player.Velocity.y < 0f ? Settings.fallGravityMultiplier : 1f;
+            return Player.Velocity.y < 0f ? Settings.FallGravityMultiplier : 1f;
         }
 
         protected virtual void OnAfterMovement()

@@ -26,6 +26,9 @@ namespace Mossbound.Player.States
             Player.Input.ConsumeDash();
             Player.Input.ConsumeJump();
 
+            //Мені не подобається така повʼязаність станів і
+            //те що у вас кругова залежність між PlayerStateMachine - PlayerState - Player
+            //https://refactoring.guru/design-patterns/state - про стейт машину
             startedOnGround = Player.StateMachine.PreviousState == Player.GroundedState;
             if (!startedOnGround)
                 Player.AirDashesLeft--;
@@ -34,8 +37,8 @@ namespace Mossbound.Player.States
             Player.SetFacing(HorizontalSign);
             velocityXBeforeDash = Player.Velocity.x;
             verticalDrift = 0f;
-            timer = Settings.dashDuration;
-            Player.Velocity = direction * Settings.dashSpeed;
+            timer = Settings.DashDuration;
+            Player.Velocity = direction * Settings.DashSpeed;
         }
 
         public override void Exit()
@@ -43,7 +46,7 @@ namespace Mossbound.Player.States
             int horizontal = HorizontalSign;
             if (horizontal != 0)
             {
-                Player.Velocity = new Vector2(horizontal * Settings.dashExitSpeed, 0f);
+                Player.Velocity = new Vector2(horizontal * Settings.DashExitSpeed, 0f);
                 Player.StartDashExit(horizontal);
             }
             else
@@ -70,8 +73,8 @@ namespace Mossbound.Player.States
                 return;
             }
 
-            verticalDrift -= Settings.Gravity * Settings.dashGravityScale * deltaTime;
-            Player.Velocity = direction * Settings.dashSpeed + Vector2.up * verticalDrift;
+            verticalDrift -= Settings.Gravity * Settings.DashGravityScale * deltaTime;
+            Player.Velocity = direction * Settings.DashSpeed + Vector2.up * verticalDrift;
         }
 
         private Vector2 ReadDirection()

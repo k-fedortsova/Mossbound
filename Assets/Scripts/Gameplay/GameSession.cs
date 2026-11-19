@@ -34,6 +34,9 @@ namespace Mossbound.Gameplay
         private void Awake()
         {
             Instance = this;
+
+            Require.Assigned(player, nameof(player), this);
+            Require.Assigned(restartAction, nameof(restartAction), this);
         }
 
         private void OnEnable()
