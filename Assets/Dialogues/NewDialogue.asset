@@ -12,12 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f679b046e7912469a4521040da8c4d, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Mossbound.Dialogue.DialogueData
-  lines:
-  - speaker: Mushroom
-    text: Hello, traveler
-  - speaker: Knight
-    text: Hi...
-  - speaker: Knight
-    text: Mushroom?
-  - speaker: Mushroom
-    text: Don't be surprised
+  lines: []
