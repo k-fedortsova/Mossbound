@@ -14,6 +14,7 @@ namespace Mossbound.Player
         [SerializeField] private PlayerMovementSettings settings;
 
         private Rigidbody2D body;
+        private IMoveSpeedModifier[] speedModifiers;
         private bool isFrozen;
 
         private float controlLockTimer;
@@ -74,6 +75,7 @@ namespace Mossbound.Player
             Input = GetComponent<PlayerInputReader>();
             Sensor = GetComponent<PlayerCollisionSensor>();
             Abilities = GetComponent<PlayerAbilities>();
+            speedModifiers = GetComponents<IMoveSpeedModifier>();
 
             StateMachine = new PlayerStateMachine();
             GroundedState = new GroundedState(this);
@@ -200,6 +202,14 @@ namespace Mossbound.Player
             wallCoyoteTimer = 0f;
         }
 
+        private float GetMoveSpeedMultiplier()
+        {
+            float multiplier = 1f;
+            foreach (IMoveSpeedModifier modifier in speedModifiers)
+                multiplier = Mathf.Min(multiplier, modifier.MoveSpeedMultiplier);
+            return multiplier;
+        }
+
         public void ApplyHorizontalMovement(float acceleration, float deceleration, float deltaTime)
         {
             int input = Input.Horizontal;
@@ -215,7 +225,7 @@ namespace Mossbound.Player
             }
             else
             {
-                float target = input * settings.MaxMoveSpeed;
+                float target = input * settings.MaxMoveSpeed * GetMoveSpeedMultiplier();
                 bool speedingUp = input != 0 && (Mathf.Approximately(velocity.x, 0f) || Mathf.Sign(velocity.x) == input);
                 float rate = speedingUp ? acceleration : deceleration;
                 velocity.x = Mathf.MoveTowards(velocity.x, target, rate * deltaTime);

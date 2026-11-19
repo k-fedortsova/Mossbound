@@ -7,6 +7,14 @@ namespace Mossbound.Player
 {
     public class PlayerVisuals : MonoBehaviour
     {
+        [Header("Damage & Death")]
+        [SerializeField] private Color hitFlashColor = new Color(1f, 0.35f, 0.35f);
+        [SerializeField, Min(0.01f)] private float hitFlashDuration = 0.12f;
+        [SerializeField] private Vector2 hitSquash = new Vector2(1.25f, 0.75f);
+
+        private PlayerHealth health;
+        private float hitFlashTimer;
+        private bool isDeadVisual;
         private static readonly int SpeedParameter = Animator.StringToHash("Speed");
         private static readonly int VerticalVelocityParameter = Animator.StringToHash("VerticalVelocity");
         private static readonly int RunAnimSpeedParameter = Animator.StringToHash("RunAnimSpeed");
@@ -14,6 +22,9 @@ namespace Mossbound.Player
         private static readonly int IsDashingParameter = Animator.StringToHash("IsDashing");
         private static readonly int IsWallSlidingParameter = Animator.StringToHash("IsWallSliding");
         private static readonly int LandedParameter = Animator.StringToHash("Landed");
+        private static readonly int IsGuardingParameter = Animator.StringToHash("IsGuarding");
+        private static readonly int AttackParameter = Animator.StringToHash("Attack");
+        private static readonly int AttackIndexParameter = Animator.StringToHash("AttackIndex");
 
         private enum AnimationPose
         {
@@ -82,6 +93,9 @@ namespace Mossbound.Player
         private Transform ghostRoot;
         private float ghostTimer;
 
+        private PlayerGuard guard;
+        private PlayerAttack attack;
+
         private Vector3 baseScale;
         private Vector3 basePosition;
         private Vector3 currentScale;
@@ -92,10 +106,14 @@ namespace Mossbound.Player
 
         private void Awake()
         {
+            health = player.GetComponent<PlayerHealth>();
             baseScale = transform.localScale;
             basePosition = transform.localPosition;
             currentScale = baseScale;
             baseColor = spriteRenderer.color;
+
+            guard = player.GetComponent<PlayerGuard>();
+            attack = player.GetComponent<PlayerAttack>();
 
             foreach (PlayerStateId state in Enum.GetValues(typeof(PlayerStateId)))
             {
@@ -105,16 +123,34 @@ namespace Mossbound.Player
         }
 
         private void Start()
-        {
+        {   
+            if (health != null)
+            {
+                health.Damaged += OnDamaged;
+                health.Died += OnDied;
+            }
+            player.Teleported += OnRespawned;
+
             SyncFacing();
             dust = new DustPuffs(spriteRenderer, dustColor, dustLifetime, dustSpeed);
             player.StateMachine.StateChanged += OnStateChanged;
+            if (attack != null)
+                attack.AttackStarted += OnAttackStarted;
         }
 
         private void OnDestroy()
         {
+            if (health != null)
+            {
+                health.Damaged -= OnDamaged;
+                health.Died -= OnDied;
+            }
+            if (player != null)
+                player.Teleported -= OnRespawned;
             if (player != null && player.StateMachine != null)
                 player.StateMachine.StateChanged -= OnStateChanged;
+            if (attack != null)
+                attack.AttackStarted -= OnAttackStarted;
             if (ghostRoot != null)
                 Destroy(ghostRoot.gameObject);
             dust?.Dispose();
@@ -122,12 +158,25 @@ namespace Mossbound.Player
 
         private void LateUpdate()
         {
+            if (isDeadVisual)
+            {
+                dust.Update(Time.deltaTime);
+                return;
+            }
+
+            UpdateHitVisuals();
             PlayerStateId state = player.StateMachine.CurrentState.Id;
             UpdateScale(state);
             UpdateTilt(state);
             UpdateAnimator(state);
             UpdateDashTrail();
             dust.Update(Time.deltaTime);
+        }
+
+        private void OnAttackStarted(int attackIndex)
+        {
+            animator.SetInteger(AttackIndexParameter, attackIndex);
+            animator.SetTrigger(AttackParameter);
         }
 
         private void UpdateScale(PlayerStateId state)
@@ -174,7 +223,6 @@ namespace Mossbound.Player
 
         private void OnStateChanged(PlayerState state)
         {
-            // A turn caused by the state change must not override that state's own squash.
             SyncFacing();
             spriteRenderer.color = state.Id == PlayerStateId.Dashing ? dashTint : baseColor;
 
@@ -220,6 +268,7 @@ namespace Mossbound.Player
             animator.SetBool(IsAirborneParameter, pose == AnimationPose.Air);
             animator.SetBool(IsDashingParameter, pose == AnimationPose.Dash);
             animator.SetBool(IsWallSlidingParameter, pose == AnimationPose.WallSlide);
+            animator.SetBool(IsGuardingParameter, guard != null && guard.IsGuarding);
         }
 
         private void UpdateDashTrail()
@@ -253,7 +302,6 @@ namespace Mossbound.Player
             }
         }
 
-        //Object Pool з префабчику - і вашій грі стане жити легше
         private void SpawnGhost()
         {
             if (ghostRoot == null)
@@ -271,7 +319,6 @@ namespace Mossbound.Player
 
         private SpriteRenderer CreateGhost()
         {
-            //Object Pool з префабчику - і вашій грі стане жити легше
             var ghost = new GameObject("Ghost").AddComponent<SpriteRenderer>();
             ghost.transform.SetParent(ghostRoot, false);
             ghost.sharedMaterial = spriteRenderer.sharedMaterial;
@@ -280,10 +327,52 @@ namespace Mossbound.Player
             return ghost;
         }
 
-        //класне рішення
         private void Squash(Vector2 scale)
         {
             currentScale = new Vector3(baseScale.x * scale.x, baseScale.y * scale.y, baseScale.z);
+        }
+
+        private void OnDamaged()
+        {
+            hitFlashTimer = hitFlashDuration;
+            Squash(hitSquash);
+            dust.Emit(FeetPosition, jumpDustCount);
+        }
+
+        private void OnDied()
+        {
+            isDeadVisual = true;
+            spriteRenderer.color = hitFlashColor;
+            transform.localRotation = Quaternion.Euler(0f, 0f, 90f * facing);
+            dust.Emit(FeetPosition, landDustCount);
+        }
+
+        private void OnRespawned()
+        {
+            isDeadVisual = false;
+            hitFlashTimer = 0f;
+            spriteRenderer.color = baseColor;
+            transform.localRotation = Quaternion.identity;
+        }
+
+        private void UpdateHitVisuals()
+        {
+            if (hitFlashTimer > 0f)
+            {
+                hitFlashTimer -= Time.deltaTime;
+                spriteRenderer.color = hitFlashColor;
+                return;
+            }
+
+            Color targetColor = player.StateMachine.CurrentState.Id == PlayerStateId.Dashing ? dashTint : baseColor;
+
+            if (health != null && health.IsInvulnerable)
+            {
+                bool blink = Mathf.FloorToInt(Time.time * 16f) % 2 == 0;
+                targetColor.a = blink ? 0.35f : 1f;
+            }
+
+            spriteRenderer.color = targetColor;
         }
     }
 }
