@@ -17,8 +17,8 @@ namespace Mossbound.UI
         [Header("Health")]
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private Image[] heartIcons;
-        [SerializeField] private Sprite fullHeartSprite;
-        [SerializeField] private Sprite emptyHeartSprite;
+        [SerializeField] private Color fullHealthColor = Color.white;
+        [SerializeField] private Color emptyHealthColor = new Color(0.2f, 0.2f, 0.2f, 0.4f);
 
         [Header("Banner")]
         [SerializeField] private CanvasGroup banner;
@@ -92,7 +92,7 @@ namespace Mossbound.UI
             for (int i = 0; i < heartIcons.Length; i++)
             {
                 if (heartIcons[i] != null)
-                    heartIcons[i].sprite = i < current ? fullHeartSprite : emptyHeartSprite;
+                    heartIcons[i].color = i < current ? fullHealthColor : emptyHealthColor;
             }
         }
 

@@ -25,6 +25,7 @@ namespace Mossbound.Player
         private static readonly int IsGuardingParameter = Animator.StringToHash("IsGuarding");
         private static readonly int AttackParameter = Animator.StringToHash("Attack");
         private static readonly int AttackIndexParameter = Animator.StringToHash("AttackIndex");
+        private static readonly int DieParameter = Animator.StringToHash("Die");
 
         private enum AnimationPose
         {
@@ -342,9 +343,10 @@ namespace Mossbound.Player
         private void OnDied()
         {
             isDeadVisual = true;
-            spriteRenderer.color = hitFlashColor;
-            transform.localRotation = Quaternion.Euler(0f, 0f, 90f * facing);
-            dust.Emit(FeetPosition, landDustCount);
+            hitFlashTimer = 0f;
+            spriteRenderer.color = baseColor;
+            transform.localRotation = Quaternion.identity;
+            animator.SetTrigger(DieParameter);
         }
 
         private void OnRespawned()
@@ -353,6 +355,8 @@ namespace Mossbound.Player
             hitFlashTimer = 0f;
             spriteRenderer.color = baseColor;
             transform.localRotation = Quaternion.identity;
+            animator.ResetTrigger(DieParameter);
+            animator.Play("Idle", 0, 0f);
         }
 
         private void UpdateHitVisuals()
