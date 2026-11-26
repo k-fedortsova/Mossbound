@@ -1,0 +1,2163 @@
+fileFormatVersion: 2
+guid: ba162143b645c0b4c8e0795fcca70b76
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3699618702101556271
+    second: dragon-atlas-v4_0
+  - first:
+      213: -1190435678698861180
+    second: dragon-atlas-v4_1
+  - first:
+      213: 8496754616585222707
+    second: dragon-atlas-v4_2
+  - first:
+      213: -4925864592061771353
+    second: dragon-atlas-v4_3
+  - first:
+      213: -5210777814531776953
+    second: dragon-atlas-v4_4
+  - first:
+      213: 6465049570244454875
+    second: dragon-atlas-v4_5
+  - first:
+      213: 4986126673037340279
+    second: dragon-atlas-v4_6
+  - first:
+      213: 4129204808027323204
+    second: dragon-atlas-v4_7
+  - first:
+      213: 3311164014266411046
+    second: dragon-atlas-v4_8
+  - first:
+      213: 972779970178140626
+    second: dragon-atlas-v4_9
+  - first:
+      213: -4831176243634757329
+    second: dragon-atlas-v4_10
+  - first:
+      213: 3601404533811343286
+    second: dragon-atlas-v4_11
+  - first:
+      213: 5733218043028858946
+    second: dragon-atlas-v4_12
+  - first:
+      213: -7325596081150294844
+    second: dragon-atlas-v4_13
+  - first:
+      213: 4345259176933574658
+    second: dragon-atlas-v4_14
+  - first:
+      213: -3562338843155764951
+    second: dragon-atlas-v4_15
+  - first:
+      213: -8884059185811813156
+    second: dragon-atlas-v4_16
+  - first:
+      213: -1526347353102998213
+    second: dragon-atlas-v4_17
+  - first:
+      213: -5975712400194224671
+    second: dragon-atlas-v4_18
+  - first:
+      213: 2563839387762326776
+    second: dragon-atlas-v4_19
+  - first:
+      213: 5653240024120698383
+    second: dragon-atlas-v4_20
+  - first:
+      213: -1727509509826702016
+    second: dragon-atlas-v4_21
+  - first:
+      213: -4753323090775103231
+    second: dragon-atlas-v4_22
+  - first:
+      213: 5413815753197251168
+    second: dragon-atlas-v4_23
+  - first:
+      213: -9207729832678087469
+    second: dragon-atlas-v4_24
+  - first:
+      213: -2699382505426500093
+    second: dragon-atlas-v4_25
+  - first:
+      213: 3632228548813999972
+    second: dragon-atlas-v4_26
+  - first:
+      213: 3304712605029934894
+    second: dragon-atlas-v4_27
+  - first:
+      213: 8626235230020201498
+    second: dragon-atlas-v4_28
+  - first:
+      213: -9059286289706100335
+    second: dragon-atlas-v4_29
+  - first:
+      213: 8057026800689496490
+    second: dragon-atlas-v4_30
+  - first:
+      213: 6321770640223940575
+    second: dragon-atlas-v4_31
+  - first:
+      213: 8722631411167421341
+    second: dragon-atlas-v4_32
+  - first:
+      213: 8414956255840241230
+    second: dragon-atlas-v4_33
+  - first:
+      213: 2038943235067396960
+    second: dragon-atlas-v4_34
+  - first:
+      213: 7274198685331993303
+    second: dragon-atlas-v4_35
+  - first:
+      213: -7328242183685661050
+    second: dragon-atlas-v4_36
+  - first:
+      213: -7702511893316097747
+    second: dragon-atlas-v4_37
+  - first:
+      213: 6875717934481955515
+    second: dragon-atlas-v4_38
+  - first:
+      213: -8270645623047810362
+    second: dragon-atlas-v4_39
+  - first:
+      213: 4266316330442843383
+    second: dragon-atlas-v4_40
+  - first:
+      213: -7404708080505088417
+    second: dragon-atlas-v4_41
+  - first:
+      213: -4922275606800054628
+    second: dragon-atlas-v4_42
+  - first:
+      213: -2561736388906164595
+    second: dragon-atlas-v4_43
+  - first:
+      213: -8980297052113266824
+    second: dragon-atlas-v4_44
+  - first:
+      213: 3162689377561304314
+    second: dragon-atlas-v4_45
+  - first:
+      213: -7078605128093161373
+    second: dragon-atlas-v4_46
+  - first:
+      213: 2011171407513298324
+    second: dragon-atlas-v4_47
+  - first:
+      213: -2505255568874668139
+    second: dragon-atlas-v4_48
+  - first:
+      213: -2876377318395400807
+    second: dragon-atlas-v4_49
+  - first:
+      213: 4569590669095122034
+    second: dragon-atlas-v4_50
+  - first:
+      213: -5760274420098564737
+    second: dragon-atlas-v4_51
+  - first:
+      213: 5503195455892208086
+    second: dragon-atlas-v4_52
+  - first:
+      213: -2906419125516348905
+    second: dragon-atlas-v4_53
+  - first:
+      213: -2505622835049533522
+    second: dragon-atlas-v4_54
+  - first:
+      213: -8735072829702904657
+    second: dragon-atlas-v4_55
+  - first:
+      213: 929065988241945340
+    second: dragon-atlas-v4_56
+  - first:
+      213: -6686831494341229070
+    second: dragon-atlas-v4_57
+  - first:
+      213: -1043282736360365900
+    second: dragon-atlas-v4_58
+  - first:
+      213: 7904824283066052361
+    second: dragon-atlas-v4_59
+  - first:
+      213: 3019262546559516293
+    second: dragon-atlas-v4_60
+  - first:
+      213: -5027631012934120456
+    second: dragon-atlas-v4_61
+  - first:
+      213: 8070060037324384459
+    second: dragon-atlas-v4_62
+  - first:
+      213: -1962632325048022490
+    second: dragon-atlas-v4_63
+  - first:
+      213: 3784693057123590901
+    second: dragon-atlas-v4_64
+  - first:
+      213: -3081758957500911695
+    second: dragon-atlas-v4_65
+  - first:
+      213: -5490415025527597274
+    second: dragon-atlas-v4_66
+  - first:
+      213: 5857291854689217857
+    second: dragon-atlas-v4_67
+  - first:
+      213: 7944791028212543552
+    second: dragon-atlas-v4_68
+  - first:
+      213: 6305461627548692960
+    second: dragon-atlas-v4_69
+  - first:
+      213: -2211600379239450183
+    second: dragon-atlas-v4_70
+  - first:
+      213: -8384310816434034653
+    second: dragon-atlas-v4_71
+  - first:
+      213: -5418088985628057854
+    second: dragon-atlas-v4_72
+  - first:
+      213: 1864318830888668864
+    second: dragon-atlas-v4_73
+  - first:
+      213: -4542619998616291783
+    second: dragon-atlas-v4_74
+  - first:
+      213: -356876942782274754
+    second: dragon-atlas-v4_75
+  - first:
+      213: -3732799742840589746
+    second: dragon-atlas-v4_76
+  - first:
+      213: -4706362209565645295
+    second: dragon-atlas-v4_77
+  - first:
+      213: -6407086170091738522
+    second: dragon-atlas-v4_78
+  - first:
+      213: 299591846303667576
+    second: dragon-atlas-v4_79
+  - first:
+      213: 8191377882820437529
+    second: dragon-atlas-v4_80
+  - first:
+      213: 1193319250257110561
+    second: dragon-atlas-v4_81
+  - first:
+      213: -770271688459599166
+    second: dragon-atlas-v4_82
+  - first:
+      213: 3199441834633984339
+    second: dragon-atlas-v4_83
+  - first:
+      213: -9015428488908544982
+    second: dragon-atlas-v4_84
+  - first:
+      213: 9133075195338969186
+    second: dragon-atlas-v4_85
+  - first:
+      213: -8570048103552735378
+    second: dragon-atlas-v4_86
+  - first:
+      213: -925567322917811848
+    second: dragon-atlas-v4_87
+  - first:
+      213: -1553394113131188485
+    second: dragon-atlas-v4_88
+  - first:
+      213: -4274791362852401286
+    second: dragon-atlas-v4_89
+  - first:
+      213: 438994692105208742
+    second: dragon-atlas-v4_90
+  - first:
+      213: 3279708525278432271
+    second: dragon-atlas-v4_91
+  - first:
+      213: 1457217349976999231
+    second: dragon-atlas-v4_92
+  - first:
+      213: 7430563717658611910
+    second: dragon-atlas-v4_93
+  - first:
+      213: 3242799571417623730
+    second: dragon-atlas-v4_94
+  - first:
+      213: 3795739360811383882
+    second: dragon-atlas-v4_95
+  - first:
+      213: 4418314401364282409
+    second: dragon-atlas-v4_96
+  - first:
+      213: -1480438848993016236
+    second: dragon-atlas-v4_97
+  - first:
+      213: 5958774243701146101
+    second: dragon-atlas-v4_98
+  - first:
+      213: -4412967385399386807
+    second: dragon-atlas-v4_99
+  - first:
+      213: -709640892376231750
+    second: dragon-atlas-v4_100
+  - first:
+      213: 3714422203010428637
+    second: dragon-atlas-v4_101
+  - first:
+      213: 8138294095363106254
+    second: dragon-atlas-v4_102
+  - first:
+      213: 2204949942206611841
+    second: dragon-atlas-v4_103
+  - first:
+      213: 7275953025567501181
+    second: dragon-atlas-v4_104
+  - first:
+      213: 1998463970015151337
+    second: dragon-atlas-v4_105
+  - first:
+      213: 6367410229985007070
+    second: dragon-atlas-v4_106
+  - first:
+      213: 1071236050830795082
+    second: dragon-atlas-v4_107
+  - first:
+      213: 8788111943116757558
+    second: dragon-atlas-v4_108
+  - first:
+      213: 8836453911522744760
+    second: dragon-atlas-v4_109
+  - first:
+      213: 8204423059811195166
+    second: dragon-atlas-v4_110
+  - first:
+      213: 4853171145204804113
+    second: dragon-atlas-v4_111
+  - first:
+      213: 2980930297406084182
+    second: dragon-atlas-v4_112
+  - first:
+      213: -1242196140883870109
+    second: dragon-atlas-v4_113
+  - first:
+      213: -4900435341783431591
+    second: dragon-atlas-v4_114
+  - first:
+      213: -4631325197150881241
+    second: dragon-atlas-v4_115
+  - first:
+      213: -3232780105056679275
+    second: dragon-atlas-v4_116
+  - first:
+      213: 2539717154957165603
+    second: dragon-atlas-v4_117
+  - first:
+      213: 523573991189574653
+    second: dragon-atlas-v4_118
+  - first:
+      213: 1294183599371187430
+    second: dragon-atlas-v4_119
+  - first:
+      213: -6677551097099672228
+    second: dragon-atlas-v4_120
+  - first:
+      213: -2513381984872938435
+    second: dragon-atlas-v4_121
+  - first:
+      213: -4746808148639566234
+    second: dragon-atlas-v4_122
+  - first:
+      213: -6846766097528339841
+    second: dragon-atlas-v4_123
+  - first:
+      213: 7787168912650553169
+    second: dragon-atlas-v4_124
+  - first:
+      213: 7060251561183849662
+    second: dragon-atlas-v4_125
+  - first:
+      213: -2301028693057307854
+    second: dragon-atlas-v4_126
+  - first:
+      213: -5074143116368956944
+    second: dragon-atlas-v4_127
+  - first:
+      213: 3090287538850359066
+    second: dragon-atlas-v4_128
+  - first:
+      213: 6455214939008299522
+    second: dragon-atlas-v4_129
+  - first:
+      213: -432181177964877641
+    second: dragon-atlas-v4_130
+  - first:
+      213: -33936723846405073
+    second: dragon-atlas-v4_131
+  - first:
+      213: -2204325762858997782
+    second: dragon-atlas-v4_132
+  - first:
+      213: -4132635666845500747
+    second: dragon-atlas-v4_133
+  - first:
+      213: 8490090559333117540
+    second: dragon-atlas-v4_134
+  - first:
+      213: -5044582878800784712
+    second: dragon-atlas-v4_135
+  - first:
+      213: 5537933386235734607
+    second: dragon-atlas-v4_136
+  - first:
+      213: -7107215486010570212
+    second: dragon-atlas-v4_137
+  - first:
+      213: -6120022528176845656
+    second: dragon-atlas-v4_138
+  - first:
+      213: -3680126167576807509
+    second: dragon-atlas-v4_139
+  - first:
+      213: 5870651277066958214
+    second: dragon-atlas-v4_140
+  - first:
+      213: -847518062625361055
+    second: dragon-atlas-v4_141
+  - first:
+      213: 8297012662765466872
+    second: dragon-atlas-v4_142
+  - first:
+      213: 2171678573355997074
+    second: dragon-atlas-v4_143
+  - first:
+      213: -2944373591843801528
+    second: dragon-atlas-v4_144
+  - first:
+      213: 3411727896314230018
+    second: dragon-atlas-v4_145
+  - first:
+      213: 757559823656395034
+    second: dragon-atlas-v4_146
+  - first:
+      213: 1423641044220510124
+    second: dragon-atlas-v4_147
+  - first:
+      213: -6605043845999975869
+    second: dragon-atlas-v4_148
+  - first:
+      213: 1424796174534537886
+    second: dragon-atlas-v4_149
+  - first:
+      213: -5052220618240325574
+    second: dragon-atlas-v4_150
+  - first:
+      213: 3295226793023099631
+    second: dragon-atlas-v4_151
+  - first:
+      213: -5686158611621530622
+    second: dragon-atlas-v4_152
+  - first:
+      213: 4964725239671842374
+    second: dragon-atlas-v4_153
+  - first:
+      213: 3092822472398975954
+    second: dragon-atlas-v4_154
+  - first:
+      213: 1651515519387822149
+    second: dragon-atlas-v4_155
+  - first:
+      213: 1470669211451279757
+    second: dragon-atlas-v4_156
+  - first:
+      213: -3124711724450349865
+    second: dragon-atlas-v4_157
+  - first:
+      213: -969930437309659593
+    second: dragon-atlas-v4_158
+  - first:
+      213: 5546516614719234554
+    second: dragon-atlas-v4_159
+  - first:
+      213: -1872457958236537593
+    second: dragon-atlas-v4_160
+  - first:
+      213: -592809996853463046
+    second: dragon-atlas-v4_161
+  - first:
+      213: -4345653554463375850
+    second: dragon-atlas-v4_162
+  - first:
+      213: 6544315978957129169
+    second: dragon-atlas-v4_163
+  - first:
+      213: -555211419622357557
+    second: dragon-atlas-v4_164
+  - first:
+      213: -4549420538565821133
+    second: dragon-atlas-v4_165
+  - first:
+      213: -240661893209092487
+    second: dragon-atlas-v4_166
+  - first:
+      213: -8874922580247978498
+    second: dragon-atlas-v4_167
+  - first:
+      213: 2366685316761942309
+    second: dragon-atlas-v4_168
+  - first:
+      213: -7803169472050825053
+    second: dragon-atlas-v4_169
+  - first:
+      213: 7221935974255288827
+    second: dragon-atlas-v4_170
+  - first:
+      213: -4711696427971467523
+    second: dragon-atlas-v4_171
+  - first:
+      213: -6486761450653632140
+    second: dragon-atlas-v4_172
+  - first:
+      213: 4112619714441541455
+    second: dragon-atlas-v4_173
+  - first:
+      213: -8129898166661562155
+    second: dragon-atlas-v4_174
+  - first:
+      213: -112287448344118729
+    second: dragon-atlas-v4_175
+  - first:
+      213: -3094374576455249714
+    second: dragon-atlas-v4_176
+  - first:
+      213: -304205706143940291
+    second: dragon-atlas-v4_177
+  - first:
+      213: 5508148771222529778
+    second: dragon-atlas-v4_178
+  - first:
+      213: -6170027048695221317
+    second: dragon-atlas-v4_179
+  - first:
+      213: 1189928393653265440
+    second: dragon-atlas-v4_180
+  - first:
+      213: -8731491945827073865
+    second: dragon-atlas-v4_181
+  - first:
+      213: -3138439421869500018
+    second: dragon-atlas-v4_182
+  - first:
+      213: 2283611278736673108
+    second: dragon-atlas-v4_183
+  - first:
+      213: 5946905810863572121
+    second: dragon-atlas-v4_184
+  - first:
+      213: 4308442591621497301
+    second: dragon-atlas-v4_185
+  - first:
+      213: 3633904289530962027
+    second: dragon-atlas-v4_186
+  - first:
+      213: -7297162658630551820
+    second: dragon-atlas-v4_187
+  - first:
+      213: 3461253565890456647
+    second: dragon-atlas-v4_188
+  - first:
+      213: 336916092212050726
+    second: dragon-atlas-v4_189
+  - first:
+      213: -8434771379727513434
+    second: dragon-atlas-v4_190
+  - first:
+      213: -4558809181852018518
+    second: dragon-atlas-v4_191
+  - first:
+      213: 7753073528993113375
+    second: dragon-atlas-v4_192
+  - first:
+      213: -5031122962876797974
+    second: dragon-atlas-v4_193
+  - first:
+      213: -839124929571818737
+    second: dragon-atlas-v4_194
+  - first:
+      213: 2500315511892184344
+    second: dragon-atlas-v4_195
+  - first:
+      213: 9037351022144584382
+    second: dragon-atlas-v4_196
+  - first:
+      213: -2034966438586410401
+    second: dragon-atlas-v4_197
+  - first:
+      213: 4083759127179079481
+    second: dragon-atlas-v4_198
+  - first:
+      213: 8232356192572530110
+    second: dragon-atlas-v4_199
+  - first:
+      213: 3752574920771517542
+    second: dragon-atlas-v4_200
+  - first:
+      213: 2512680742570338875
+    second: dragon-atlas-v4_201
+  - first:
+      213: 346459570375140968
+    second: dragon-atlas-v4_202
+  - first:
+      213: -1767393330000447217
+    second: dragon-atlas-v4_203
+  - first:
+      213: -1735971092257022460
+    second: dragon-atlas-v4_204
+  - first:
+      213: 8063412853478228182
+    second: dragon-atlas-v4_205
+  - first:
+      213: 6360085163352440381
+    second: dragon-atlas-v4_206
+  - first:
+      213: -3304252298491785038
+    second: dragon-atlas-v4_207
+  - first:
+      213: 3439994151147112599
+    second: dragon-atlas-v4_208
+  - first:
+      213: 2011192731957306640
+    second: dragon-atlas-v4_209
+  - first:
+      213: -7666516583797263130
+    second: dragon-atlas-v4_210
+  - first:
+      213: -3557620402302639354
+    second: dragon-atlas-v4_211
+  - first:
+      213: 3720006241887335851
+    second: dragon-atlas-v4_212
+  - first:
+      213: 522004920348849856
+    second: dragon-atlas-v4_213
+  - first:
+      213: 8006944212703367855
+    second: dragon-atlas-v4_214
+  - first:
+      213: -8147313913714388090
+    second: dragon-atlas-v4_215
+  - first:
+      213: -5326267486493996729
+    second: dragon-atlas-v4_216
+  - first:
+      213: -6578607221448560917
+    second: dragon-atlas-v4_217
+  - first:
+      213: 5216907090658273757
+    second: dragon-atlas-v4_218
+  - first:
+      213: -5014504985519947707
+    second: dragon-atlas-v4_219
+  - first:
+      213: 312594249345092040
+    second: dragon-atlas-v4_220
+  - first:
+      213: -1006918541903573576
+    second: dragon-atlas-v4_221
+  - first:
+      213: -2189035983273885448
+    second: dragon-atlas-v4_222
+  - first:
+      213: 4827578017887028677
+    second: dragon-atlas-v4_223
+  - first:
+      213: 7890278587471112758
+    second: dragon-atlas-v4_224
+  - first:
+      213: 6574073027515319011
+    second: dragon-atlas-v4_225
+  - first:
+      213: 2316481157147248456
+    second: dragon-atlas-v4_226
+  - first:
+      213: -4854015841969680359
+    second: dragon-atlas-v4_227
+  - first:
+      213: -1010450503167030396
+    second: dragon-atlas-v4_228
+  - first:
+      213: 6227501613530876070
+    second: dragon-atlas-v4_229
+  - first:
+      213: -4617109340190326917
+    second: dragon-atlas-v4_230
+  - first:
+      213: 45311646473012423
+    second: dragon-atlas-v4_231
+  - first:
+      213: 3476318345438577990
+    second: dragon-atlas-v4_232
+  - first:
+      213: 6203644836686969980
+    second: dragon-atlas-v4_233
+  - first:
+      213: 2376224819547643865
+    second: dragon-atlas-v4_234
+  - first:
+      213: -2622535511322052841
+    second: dragon-atlas-v4_235
+  - first:
+      213: 8763163653721218980
+    second: dragon-atlas-v4_236
+  - first:
+      213: -5663294851979044080
+    second: dragon-atlas-v4_237
+  - first:
+      213: 2860451327476078522
+    second: dragon-atlas-v4_238
+  - first:
+      213: -7292035065286504969
+    second: dragon-atlas-v4_239
+  - first:
+      213: -5111067230515150604
+    second: dragon-atlas-v4_240
+  - first:
+      213: -665722577113141650
+    second: dragon-atlas-v4_241
+  - first:
+      213: 5142318666000404812
+    second: dragon-atlas-v4_242
+  - first:
+      213: 4979288790040590020
+    second: dragon-atlas-v4_243
+  - first:
+      213: -2315665662783736744
+    second: dragon-atlas-v4_244
+  - first:
+      213: 1496340138109543505
+    second: dragon-atlas-v4_245
+  - first:
+      213: -7238303999780730505
+    second: dragon-atlas-v4_246
+  - first:
+      213: -1350063024164780848
+    second: dragon-atlas-v4_247
+  - first:
+      213: 6474920896055115698
+    second: dragon-atlas-v4_248
+  - first:
+      213: -1943803933283516903
+    second: dragon-atlas-v4_249
+  - first:
+      213: 2870708684953947976
+    second: dragon-atlas-v4_250
+  - first:
+      213: -1974535254739695409
+    second: dragon-atlas-v4_251
+  - first:
+      213: -1191877231301898954
+    second: dragon-atlas-v4_252
+  - first:
+      213: 4144028092364441215
+    second: dragon-atlas-v4_253
+  - first:
+      213: 5069906783779281686
+    second: dragon-atlas-v4_254
+  - first:
+      213: -3108105591965054058
+    second: dragon-atlas-v4_255
+  - first:
+      213: -1149290788740185359
+    second: dragon-atlas-v4_256
+  - first:
+      213: 4465371281865000179
+    second: dragon-atlas-v4_257
+  - first:
+      213: -5983930782595513361
+    second: dragon-atlas-v4_258
+  - first:
+      213: 1086230502432259061
+    second: dragon-atlas-v4_259
+  - first:
+      213: -3989207525294429644
+    second: dragon-atlas-v4_260
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 160
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 29
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 29
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dragon-idle-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a467367b2daeaa0406208407d3a10c8
+      internalID: -459212846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-idle-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0988f3a09fd69893228ba949fa2769
+      internalID: -13281569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-idle-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b7e37bf7b59f4a5dded744be39eba0
+      internalID: -932557235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-idle-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e060faeffdbe7ee5ab3ed864b9b8736
+      internalID: -102915217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-idle-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07c8337fea1bce1c076074b648a6d22
+      internalID: -1327781450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-idle-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2474c873489a525072297279148c091f
+      internalID: 254289964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3dbccff1d427f23891c6705d73b94c
+      internalID: -2025415951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb656e262be4cf9555314c531e301a5e
+      internalID: 1798380525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68563d04a73f1a3ea78611e7840b3efd
+      internalID: -1222484082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34659b619ca683833f93387732c7598
+      internalID: 980778515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3a5875d00e7d4897104ca6e3df3dab
+      internalID: 1310511945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-happy-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2aa1d50e903e04e9436c6ed05d0285
+      internalID: 1076341742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fd6ad390c568931c540fcf8cc296b1
+      internalID: 989375962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313755461a00492329b5f4b87dfc2e7c
+      internalID: 1970640395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd2b166387f3fe9e9090129e1860140
+      internalID: 741346089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10dc60d0badc79773074f5f1ce0a97f
+      internalID: -367744805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09e2ba96542dfc22eb509318cb82e89
+      internalID: 290635858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-cry-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d96a3a044933a4092d52d443772e66
+      internalID: -907115956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd69cec599709dd20994701bdc13ee1c
+      internalID: 1060918752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d24d8ae5a5cd5f6596235668ab0d96c
+      internalID: -666434186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed0a1c6faa975529e041117e1edca67
+      internalID: -170064254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1ea0c66c76cd86b172268daee3cb25
+      internalID: -1603592078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf5a44be9ce0536ca0fce43da0bec47
+      internalID: 525230003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fff58a37a70428f4b926fd64616084
+      internalID: 250288200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008e33f3c470ede80677fb945240d7d4
+      internalID: -1977392471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-walk-7
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2d9373799b082605b009fc2ae4e3a3
+      internalID: 1698956542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae609dd06a344bc84d7f72245dd10eb8
+      internalID: 1497061109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f838d95d7670ac61dcc2e0618dbfdb2
+      internalID: 797546082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d394c4471a3fdf40dbd0140bcb6c9ad
+      internalID: -571364851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3221229319ba99a7e950480eff2cd9f9
+      internalID: -894372673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59f2e2ace04f9ba93cd7cfa4051f36c
+      internalID: -29393759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-attack-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 960
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1b014cfcd7d1069defdcfc72183928
+      internalID: -2021292196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb113740d753c1cd1ae95605cfc4e75
+      internalID: 491327890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0c25f97e779c0c796be33102ce42e6
+      internalID: 276317904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7a366afd70954ec9a0337f8acf7f02
+      internalID: -2044516975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bca9fb950aefa197cd91d918f0b9fa0
+      internalID: 1720279083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0261c76bb04a48e232596fbdd14ce0
+      internalID: 1802833274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-jump-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 640
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37834fe532b7df7256b033334a14f07
+      internalID: -2067873290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45961194c9794b7c687ac47c1decb713
+      internalID: -1999235401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d0252053b2ca4fda856cfc02358812
+      internalID: 1873261326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572cbfaa315ab699d9794f760fb4669c
+      internalID: -1033257397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6957e0f80d3575758450616f1233cb33
+      internalID: -1678202233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597a04600613061df5950657d4614ba7
+      internalID: 998956215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f498c3aacf60fffab48364c3ead94dc
+      internalID: -2046626677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7be66309cb4ff596cf85bc038281b6f
+      internalID: -1739958056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-hit-7
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 320
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d052591131ee1366109a3cf42d11309b
+      internalID: -594230267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df1f75bc82290497f176968a270921d
+      internalID: 2070983490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5521572895cd4fcbcce4d3a1d1efdb
+      internalID: 786929777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a523ed5c7bc1980c7c8f9e3ccf9be98a
+      internalID: -939759982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b374619675aee9a7f2fd1d5046fd47
+      internalID: -594702914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661a665db3718ab7734f6d1e1b5546b3
+      internalID: 556502239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0547d028fe7795ba6513c2cd04156463
+      internalID: 783959329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84152f375c6b55a2b42a1bd1e225a22
+      internalID: -1656563873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragon-death-7
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bef47d3ccb0ab8f3fa5c01066fbd5d5
+      internalID: -1458316051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0092bdd53011c4845a560fd38a0a9eaf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dragon-attack-0: 1497061109
+      dragon-attack-1: 797546082
+      dragon-attack-2: -571364851
+      dragon-attack-3: -894372673
+      dragon-attack-4: -29393759
+      dragon-attack-5: -2021292196
+      dragon-cry-0: 989375962
+      dragon-cry-1: 1970640395
+      dragon-cry-2: 741346089
+      dragon-cry-3: -367744805
+      dragon-cry-4: 290635858
+      dragon-cry-5: -907115956
+      dragon-death-0: 2070983490
+      dragon-death-1: 786929777
+      dragon-death-2: -939759982
+      dragon-death-3: -594702914
+      dragon-death-4: 556502239
+      dragon-death-5: 783959329
+      dragon-death-6: -1656563873
+      dragon-death-7: -1458316051
+      dragon-happy-0: -2025415951
+      dragon-happy-1: 1798380525
+      dragon-happy-2: -1222484082
+      dragon-happy-3: 980778515
+      dragon-happy-4: 1310511945
+      dragon-happy-5: 1076341742
+      dragon-hit-0: -1999235401
+      dragon-hit-1: 1873261326
+      dragon-hit-2: -1033257397
+      dragon-hit-3: -1678202233
+      dragon-hit-4: 998956215
+      dragon-hit-5: -2046626677
+      dragon-hit-6: -1739958056
+      dragon-hit-7: -594230267
+      dragon-idle-0: -459212846
+      dragon-idle-1: -13281569
+      dragon-idle-2: -932557235
+      dragon-idle-3: -102915217
+      dragon-idle-4: -1327781450
+      dragon-idle-5: 254289964
+      dragon-jump-0: 491327890
+      dragon-jump-1: 276317904
+      dragon-jump-2: -2044516975
+      dragon-jump-3: 1720279083
+      dragon-jump-4: 1802833274
+      dragon-jump-5: -2067873290
+      dragon-walk-0: 1060918752
+      dragon-walk-1: -666434186
+      dragon-walk-2: -170064254
+      dragon-walk-3: -1603592078
+      dragon-walk-4: 525230003
+      dragon-walk-5: 250288200
+      dragon-walk-6: -1977392471
+      dragon-walk-7: 1698956542
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 430490
+  packageName: Little Monsters - Character Pack 01
+  packageVersion: 1.0.0
+  assetPath: Assets/RubysGameStudio/Monster Atelier/Little Monsters/Character Pack
+    1/Source/dragon/dragon-atlas-v4.png
+  uploadId: 1053994
