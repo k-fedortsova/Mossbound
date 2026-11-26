@@ -53,6 +53,27 @@ namespace Mossbound.Menu
         private void Awake()
         {
             button = Button;
+            CacheOrigins();
+        }
+
+        // For buttons built in code at runtime (the pause menu): AddComponent runs Awake before the parts exist.
+        public void Configure(RectTransform visual, Image background, Sprite regularSprite, Sprite pressedSprite,
+            RectTransform content, RectTransform icon, Text label, RectTransform sword, CanvasGroup swordGroup)
+        {
+            this.visual = visual;
+            this.background = background;
+            this.regularSprite = regularSprite;
+            this.pressedSprite = pressedSprite;
+            this.content = content;
+            this.icon = icon;
+            this.label = label;
+            this.sword = sword;
+            this.swordGroup = swordGroup;
+            CacheOrigins();
+        }
+
+        private void CacheOrigins()
+        {
             if (content != null)
                 contentOrigin = content.anchoredPosition;
             if (sword != null)
@@ -75,6 +96,8 @@ namespace Mossbound.Menu
 
         private void Update()
         {
+            if (visual == null)
+                return;
             float dt = Mathf.Min(Time.unscaledDeltaTime, 1f / 20f);
             bool interactable = button.IsInteractable();
             submitFlash = Mathf.Max(0f, submitFlash - dt);
