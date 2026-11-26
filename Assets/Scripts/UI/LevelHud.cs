@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Mossbound.Gameplay;
+using Mossbound.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,12 @@ namespace Mossbound.UI
         [Header("Stats")]
         [SerializeField] private Text timerText;
         [SerializeField] private Text fallsText;
+
+        [Header("Health")]
+        [SerializeField] private PlayerHealth playerHealth;
+        [SerializeField] private Image[] heartIcons;
+        [SerializeField] private Color fullHealthColor = Color.white;
+        [SerializeField] private Color emptyHealthColor = new Color(0.2f, 0.2f, 0.2f, 0.4f);
 
         [Header("Banner")]
         [SerializeField] private CanvasGroup banner;
@@ -48,6 +55,9 @@ namespace Mossbound.UI
             session.FallsChanged += UpdateFalls;
             session.MessageRequested += EnqueueMessage;
             session.Finished += ShowFinish;
+
+            if (playerHealth != null)
+                playerHealth.HealthChanged += UpdateHealth;
         }
 
         private void OnDisable()
@@ -55,17 +65,35 @@ namespace Mossbound.UI
             session.FallsChanged -= UpdateFalls;
             session.MessageRequested -= EnqueueMessage;
             session.Finished -= ShowFinish;
+
+            if (playerHealth != null)
+                playerHealth.HealthChanged -= UpdateHealth;
         }
 
         private void Start()
         {
             UpdateFalls(session.Falls);
+
+            if (playerHealth != null)
+                UpdateHealth(playerHealth.CurrentHealth, playerHealth.MaxHealth);
         }
 
         private void Update()
         {
             timerText.text = FormatTime(session.ElapsedTime);
             UpdateBanner();
+        }
+
+        private void UpdateHealth(int current, int max)
+        {
+            if (heartIcons == null)
+                return;
+
+            for (int i = 0; i < heartIcons.Length; i++)
+            {
+                if (heartIcons[i] != null)
+                    heartIcons[i].color = i < current ? fullHealthColor : emptyHealthColor;
+            }
         }
 
         private void UpdateBanner()
@@ -107,7 +135,6 @@ namespace Mossbound.UI
             bannerTimer = 0f;
             banner.alpha = 0f;
 
-            // The session fades to the next level on its own; the full finish panel is only for the last level.
             if (session.HasNextLevel)
             {
                 DisplayMessage(("LEVEL COMPLETE", $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}"));
