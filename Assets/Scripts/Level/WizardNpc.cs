@@ -9,7 +9,16 @@ using UnityEngine.InputSystem;
 
 namespace Mossbound.Level
 {
-    public enum WizardState { Idle, InteractionAvailable, RiddleActive, CorrectAnswer, WrongAnswer, Disappearing, Finished }
+    public enum WizardState
+    {
+        Idle = 0,
+        InteractionAvailable = 1,
+        RiddleActive = 2,
+        CorrectAnswer = 3,
+        WrongAnswer = 4,
+        Disappearing = 5,
+        Finished = 6,
+    }
 
     [Serializable]
     public struct DialogueLine
@@ -78,6 +87,12 @@ namespace Mossbound.Level
         {
             interactionZone = GetComponent<BoxCollider2D>();
             SetPrompt(false);
+
+            Require.Assigned(interactAction, nameof(interactAction), this);
+            Require.Assigned(dialogue, nameof(dialogue), this);
+            Require.Assigned(spriteRenderer, nameof(spriteRenderer), this);
+            if (Require.NotEmpty(answers, nameof(answers), this))
+                Require.InRange(correctAnswer, answers.Length, nameof(correctAnswer), this);
         }
 
         private void OnEnable()

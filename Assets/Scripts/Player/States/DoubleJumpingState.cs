@@ -15,7 +15,7 @@ namespace Mossbound.Player.States
         {
             Player.Input.ConsumeJump();
             Player.AirJumpsLeft--;
-            Player.Velocity = new Vector2(Player.Velocity.x, Settings.doubleJumpVerticalSpeed);
+            Player.Velocity = new Vector2(Player.Velocity.x, Settings.DoubleJumpVerticalSpeed);
         }
     }
 }
