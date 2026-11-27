@@ -1,0 +1,8 @@
+Duskhold Castle – license (FREE)
+
+You may use these assets in free and commercial games and apps, modified or not. Credit appreciated, not required.
+You may not resell or redistribute the assets themselves (alone or in another asset pack), or claim them as your own.
+
+How it was made: surface painting of textures, props, icons and two parallax layers was AI-assisted (ChatGPT image
+generation over our own grey-box layouts). The grid, 47-blob/16-mask autotile, cutting, anchors, animated FX,
+code-drawn sky/moon/clouds/mist, JSON, Tiled/Godot files and the demo are our own work.
