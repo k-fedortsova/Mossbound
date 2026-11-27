@@ -13,6 +13,7 @@ namespace Mossbound.UI
         [Header("Stats")]
         [SerializeField] private Text timerText;
         [SerializeField] private Text fallsText;
+        [SerializeField] private Text goldText;
 
         [Header("Health")]
         [SerializeField] private PlayerHealth playerHealth;
@@ -55,6 +56,7 @@ namespace Mossbound.UI
             session.FallsChanged += UpdateFalls;
             session.MessageRequested += EnqueueMessage;
             session.Finished += ShowFinish;
+            PlayerGold.GoldChanged += UpdateGold;
 
             if (playerHealth != null)
                 playerHealth.HealthChanged += UpdateHealth;
@@ -65,6 +67,7 @@ namespace Mossbound.UI
             session.FallsChanged -= UpdateFalls;
             session.MessageRequested -= EnqueueMessage;
             session.Finished -= ShowFinish;
+            PlayerGold.GoldChanged -= UpdateGold;
 
             if (playerHealth != null)
                 playerHealth.HealthChanged -= UpdateHealth;
@@ -73,6 +76,7 @@ namespace Mossbound.UI
         private void Start()
         {
             UpdateFalls(session.Falls);
+            UpdateGold(PlayerGold.TotalGold);
 
             if (playerHealth != null)
                 UpdateHealth(playerHealth.CurrentHealth, playerHealth.MaxHealth);
@@ -94,6 +98,12 @@ namespace Mossbound.UI
                 if (heartIcons[i] != null)
                     heartIcons[i].color = i < current ? fullHealthColor : emptyHealthColor;
             }
+        }
+
+        private void UpdateGold(int totalGold)
+        {
+            if (goldText != null)
+                goldText.text = $"Gold: {totalGold}";
         }
 
         private void UpdateBanner()
@@ -137,12 +147,12 @@ namespace Mossbound.UI
 
             if (session.HasNextLevel)
             {
-                DisplayMessage(("LEVEL COMPLETE", $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}"));
+                DisplayMessage(("LEVEL COMPLETE", $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}    Gold: {PlayerGold.TotalGold}"));
                 return;
             }
 
             finishPanel.SetActive(true);
-            finishStats.text = $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}";
+            finishStats.text = $"Time: {FormatTime(session.ElapsedTime)}    Falls: {session.Falls}    Gold: {PlayerGold.TotalGold}";
         }
 
         private static string FormatTime(float seconds)
